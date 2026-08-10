@@ -13,6 +13,10 @@
 
 ## 更新动态
 
+### 2026-08-10
+
+- **工程 · 公开更新日志仓**：新增 [`LaEirt/pk-changelog`](https://github.com/LaEirt/pk-changelog)，与根 `README`「更新动态」全文同步；脚本 `scripts/sync_pk_changelog.py`。
+
 ### 2026-08-08
 
 - **工作台 · 通知中台**：提醒文案改为纯中文编辑（无 `{{…}}`）；月份/笔数系统拼接；另含保存 diff、歧义合并、免打扰、企微 textcard、发送记录与再次提醒冷却。见 `workbench_notify_hub_plan.md`。
