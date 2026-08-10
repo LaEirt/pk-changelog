@@ -12,6 +12,7 @@
 
 ### 2026-08-10
 
+- **工作台 · 短信登录生产开通**：ECS 补全签名「广州市思维重塑文化科技」+ 模板 `SMS_333355524`；清理手机号重复绑定并加唯一索引；企微空号写入跳过已被占用号码。试发/生产发码已对 `173****8673`、`189****6197` 通过。见 `aliyun_sms_plan.md`。
 - **工程 · 公开更新日志仓**：新增 [`LaEirt/pk-changelog`](https://github.com/LaEirt/pk-changelog)，与根 `README`「更新动态」全文同步；脚本 `scripts/sync_pk_changelog.py`。
 
 ### 2026-08-08
