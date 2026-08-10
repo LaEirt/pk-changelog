@@ -12,6 +12,7 @@
 
 ### 2026-08-10
 
+- **工作台 · 登录页适配手机号登录**：账号表单内「密码登录 / 手机号登录」同级分段 Tab；说明条 + 验证码行内获取；页脚链路收敛。见 `UI_DESIGN.md` §5.8。
 - **商城 · 短信绑手机已落地**：`POST store/user/send_phone_code` / `bind_phone`（OTP purpose=`store_bind`，与工作台隔离）；个人中心去绑定、线上课结算拦截、订单 `need_phone` 可绑后重试开通。见 `storefront_toc_benchmark_plan.md` §7.2、`aliyun_sms_plan.md`。
 - **工作台 · 短信登录生产开通**：ECS 补全签名「广州市思维重塑文化科技」+ 模板 `SMS_333355524`；清理手机号重复绑定并加唯一索引；企微空号写入跳过已被占用号码。试发/生产发码已对 `173****8673`、`189****6197` 通过。见 `aliyun_sms_plan.md`。
 - **工程 · 公开更新日志仓**：新增 [`LaEirt/pk-changelog`](https://github.com/LaEirt/pk-changelog)，与根 `README`「更新动态」全文同步；脚本 `scripts/sync_pk_changelog.py`。
