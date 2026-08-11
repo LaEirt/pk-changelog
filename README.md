@@ -12,6 +12,7 @@
 
 ### 2026-08-11
 
+- **运维 · 短信落地 · W4 硬化**：overview 含加人成功/加人率；PATCH 改主键不丢次键；OTP 发送记录强制掩码；企微 `friend_request` 事件失败可重试；缺 match 行时 resolve 回退。见 `sms_landing_shortlink_plan.md` §15 SL-T-49～53。
 - **运维 · 短信落地 · W4 多商品 + 加人成功**：一短链可绑多个匹配键（`sms.sms_landing_match`）；CTA assign 注入 `customer_channel`；企微获客 `friend_request` 回调归因写入 `add_success`；工作台漏斗展示加人。见 `sms_landing_shortlink_plan.md`。
 - **工作台 · 短信发送记录 · 手机号全量展示**：列表/详情/CSV 展示完整手机号（`sms.sms_send_log.phone`）；OTP 验证码仍脱敏。见 `sms_landing_shortlink_plan.md` §5.6。
 - **工作台 · 短信推广 · 整页编辑与花名册选品**：新建/编辑为独立页（顶栏模块 Tab + 左表单/右预览）；绑定商品目录同源花名册「商品名称与简称」（表格+IP/平台/店铺筛选，不手填）；新建默认延迟 5 分钟。见 `sms_landing_shortlink_plan.md` §10.2。
