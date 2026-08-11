@@ -4,11 +4,25 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-10
+- 同步日：2026-08-11
 
 ---
 
 ## 更新动态
+
+### 2026-08-11
+
+- **工作台 · 短信推广 · 整页编辑与花名册选品**：新建/编辑为独立页（顶栏模块 Tab + 左表单/右预览）；绑定商品目录同源花名册「商品名称与简称」（表格+IP/平台/店铺筛选，不手填）；新建默认延迟 5 分钟。见 `sms_landing_shortlink_plan.md` §10.2。
+- **工作台 · 短信推广独立导航与权限**：侧栏新建「短信推广」（落地短链 / 审计 / 发送记录）；权限码 `sms_promo_read` / `sms_promo_write`，与「小鹅通权益开通」解耦；Admin 可单独授权。见 `sms_landing_shortlink_plan.md`、`workbench_rbac.md`。
+- **运维 · 短信落地 · 购后推广编排（W2.7）**：水位 `sms_send_watermark` 初始化为上线时刻、不扫历史；Celery Beat `sms_promo_orchestrator_tick` 捞 `日报.全域订单` 新增有手机号订单，命中短链后发推广短信并写 `sms_send_log`；支持 `run_sms_promo_orchestrator` dry-run。见 `sms_landing_shortlink_plan.md` §2.8 / §5.6。
+- **运维 · 短信 · OTP 入发送记录**：工作台绑手机/登录等验证码发送成败写入 `sms.sms_send_log`（`sms_type=otp`，快照掩码验证码）；与推广 TemplateCode 强制隔离（SL-T-12 / SL-T-30）。见 `sms_landing_shortlink_plan.md` §5.6、`aliyun_sms.md`。
+- **运维 · 短信落地 · 发送记录（物料）**：短信推广「发送记录」；`sms.sms_send_log` 记发送/回执双状态、内容快照、计费条数；支持刷新回执（QuerySendDetails）、失败单条重试、CSV 导出与短链打开/CTA 漏斗。见 `sms_landing_shortlink_plan.md` §5.6 / §10.4。
+- **运维 · 短信落地 · 独立 schema**：业务表迁入 PostgreSQL schema `sms`（`SMS_SCHEMA` 可覆盖）；与 `public` / 咨询域隔离；后续发送表同 schema。见 `sms_landing_shortlink_plan.md` §5.0。
+- **运维 · 短信落地 · 推广发送时间**：短链可配「尽快 / 每日时段 / 每日定点」与延迟；窗外延后，编排遵从该窗。见 `sms_landing_shortlink_plan.md` §2.8.1。
+- **运维 · 短信落地 · 配置审计页**：短信推广「落地短链审计」；支持按动作/操作者/短码/商品键/日期筛选，详情含字段级前后对比与完整 JSON。见 `sms_landing_shortlink_plan.md` §10.3。
+- **运维 · 短信落地短链 · 号池效率（P0/P1）**：批量粘贴 / 复制号池；助教号库与助教组多选挂入；页内「落地短链 / 助教号库 / 助教组」三 Tab。见 `sms_landing_shortlink_plan.md` §2.7。
+- **运维 · 短信落地短链 · 多号分流**：同一商品短链可挂多个企微获客号，支持加权/轮询/粘性/优先级等 `route_mode`；公开页 CTA 先 `assign` 再跳转。见 `sms_landing_shortlink_plan.md`。
+- **运维 · 短信落地短链（自建）**：公开域 `s.siweichongsu.com/{code}` 挤压页（点击跳转企微获客）；工作台按商品名/简称分配企微链；PV/CTA 事件与日汇总可统计。见 `sms_landing_shortlink_plan.md`。
 
 ### 2026-08-10
 
