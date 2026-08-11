@@ -12,6 +12,8 @@
 
 ### 2026-08-11
 
+- **运维 · 短信落地 · W4 多商品 + 加人成功**：一短链可绑多个匹配键（`sms.sms_landing_match`）；CTA assign 注入 `customer_channel`；企微获客 `friend_request` 回调归因写入 `add_success`；工作台漏斗展示加人。见 `sms_landing_shortlink_plan.md`。
+- **工作台 · 短信发送记录 · 手机号全量展示**：列表/详情/CSV 展示完整手机号（`sms.sms_send_log.phone`）；OTP 验证码仍脱敏。见 `sms_landing_shortlink_plan.md` §5.6。
 - **工作台 · 短信推广 · 整页编辑与花名册选品**：新建/编辑为独立页（顶栏模块 Tab + 左表单/右预览）；绑定商品目录同源花名册「商品名称与简称」（表格+IP/平台/店铺筛选，不手填）；新建默认延迟 5 分钟。见 `sms_landing_shortlink_plan.md` §10.2。
 - **工作台 · 短信推广独立导航与权限**：侧栏新建「短信推广」（落地短链 / 审计 / 发送记录）；权限码 `sms_promo_read` / `sms_promo_write`，与「小鹅通权益开通」解耦；Admin 可单独授权。见 `sms_landing_shortlink_plan.md`、`workbench_rbac.md`。
 - **运维 · 短信落地 · 购后推广编排（W2.7）**：水位 `sms_send_watermark` 初始化为上线时刻、不扫历史；Celery Beat `sms_promo_orchestrator_tick` 捞 `日报.全域订单` 新增有手机号订单，命中短链后发推广短信并写 `sms_send_log`；支持 `run_sms_promo_orchestrator` dry-run。见 `sms_landing_shortlink_plan.md` §2.8 / §5.6。
