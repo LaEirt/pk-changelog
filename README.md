@@ -12,11 +12,8 @@
 
 ### 2026-08-12
 
-- 短信推广：购后 SendSms 模板参数对齐控制台（`${product_name}` + `${code}`），修复误传整段 URL 导致阿里云拒发
-- 短信落地短链：一短链多商品 + 企微加人回调归因；发送记录漏斗展示「加人」；OTP 与推广手机号入库策略分离（见 `sms_landing_shortlink_plan.md`）
-
-### 2026-08-11
-
+- 短信推广：购后 SendSms 模板参数对齐控制台（`${product_name}` + `${code}`），修复误传整段 URL 导致阿里云拒发。见 `sms_landing_shortlink_plan.md`。
+- 短信推广：绑定商品选择器支持多类型排除（平台/店铺/IP/全称，chip + 展开点选），简称分组不再误囊括已排除维度。见 `sms_landing_shortlink_plan.md` SL-T-54。
 - **工作台 · 结算快照指纹忽略刷新时间**：内容比对不再把 ADS `刷新时间` 计入哈希；可用 `recompute_order_snapshot_fingerprints --settlement-month YYYY-MM --commit` 回填已落盘误标「有变更」。见 `order_settlement_snapshot_plan.md` T21a / OS-22e/f。
 - **工作台 · 我的文件 → 数据比对指引**：个人中心「我的文件」增加指引条与「去数据比对」链接，说明可对本盘 Excel/CSV 做行级比对（支持选盘）。见 `me_personal_files_plan.md` PF-19、`data_compare_plan.md`。
 
