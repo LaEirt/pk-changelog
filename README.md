@@ -12,7 +12,7 @@
 
 ### 2026-08-12
 
-- **工作台 · 功能引导助手（P0–P2）**：顶栏「助手」浮层对话；百炼模型 + 知识库检索；权限内打开页面/重放新手引导；可选企微应用收消息回调。总闸 `SIWEICHONGSU_GUIDE_AGENT_ENABLED`。见 `workbench_guide_agent_plan.md`、`aliyun_bailian_llm.md`。
+- **工作台 · 功能引导助手（P0–P2）**：右下角浮球入口；**小窗 → 扩大 → 全屏**三段式浮层；百炼模型 + **知识库 RAG** + **记忆库**跨会话偏好（`GUIDE_AGENT_MEMORY_ID`）；权限内打开页面/重放新手引导；可选企微收消息回调。总闸 `SIWEICHONGSU_GUIDE_AGENT_ENABLED`。见 `workbench_guide_agent_plan.md`、`aliyun_bailian_llm.md`。
 - **运维 · 短信发送审计（任务记录+消耗统计）**：工作台发送记录页拆「短信记录 / 消耗统计」；明细对齐控制台送达与报告时间、链接点击；日汇总条数/金额估算（`sms_send_log`×单价）。见 `sms_landing_shortlink_plan.md` SL-T-58。
 - **运维 · 短信发送记录 ↔ 阿里云对齐**：工作台「送达结果」列（与控制台发送成功/失败一致）；Beat 每 5 分钟自动 `QuerySendDetails` 刷新 pending；试发 `run_aliyun_sms_send.py --promo --write-log`。见 `sms_landing_shortlink_plan.md` §5.6。
 - **运维 · 短信落地 · 公开页 TOC 多端**：`s.siweichongsu.com/{code}` 三步激活条 + 双栏布局（桌面 sticky TOC / 移动横滑）；单 CTA 与 assign 埋点不变；工作台预览同步。见 `sms_landing_shortlink_plan.md` §10.1。
