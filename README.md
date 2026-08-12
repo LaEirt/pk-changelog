@@ -12,9 +12,13 @@
 
 ### 2026-08-12
 
+- **工作台 · 功能引导助手（P0–P2）**：顶栏「助手」浮层对话；百炼模型 + 知识库检索；权限内打开页面/重放新手引导；可选企微应用收消息回调。总闸 `SIWEICHONGSU_GUIDE_AGENT_ENABLED`。见 `workbench_guide_agent_plan.md`、`aliyun_bailian_llm.md`。
+- **运维 · 短信发送审计（任务记录+消耗统计）**：工作台发送记录页拆「短信记录 / 消耗统计」；明细对齐控制台送达与报告时间、链接点击；日汇总条数/金额估算（`sms_send_log`×单价）。见 `sms_landing_shortlink_plan.md` SL-T-58。
+- **运维 · 短信发送记录 ↔ 阿里云对齐**：工作台「送达结果」列（与控制台发送成功/失败一致）；Beat 每 5 分钟自动 `QuerySendDetails` 刷新 pending；试发 `run_aliyun_sms_send.py --promo --write-log`。见 `sms_landing_shortlink_plan.md` §5.6。
+- **运维 · 短信落地 · 公开页 TOC 多端**：`s.siweichongsu.com/{code}` 三步激活条 + 双栏布局（桌面 sticky TOC / 移动横滑）；单 CTA 与 assign 埋点不变；工作台预览同步。见 `sms_landing_shortlink_plan.md` §10.1。
 - **运维 · 短信落地 · 助教成效统计**：按助教/短链看 CTA 与加人（编辑页「号池成效」、号库跨链汇总）；事件与日表冗余 `assistant_id`；加人率口径统一为加人÷CTA。见 `sms_landing_shortlink_plan.md` SL-T-56/57。
 - **运维 · 短信落地 · 助教号细粒度审计**：配置保存写短链级 + 每变更号级审计（权重/启停/增删）；审计页可按助教名过滤。见 `sms_landing_shortlink_plan.md` SL-T-55。
-- **工作台 · 提醒文案 · 通知对象**：每个场景可编并在侧栏展示；选项为「仅销售 / 业务圈定对象」；结算就绪与认领摘要默认只推销售。见 `workbench_notify_hub_plan.md` NH-12。
+- **工作台 · 提醒文案 · 通知对象**：支持「仅销售 / 业务圈定 / 指定同事」；指定同事多选联动工作台账号；侧栏展示摘要。见 `workbench_notify_hub_plan.md` NH-12/13。
 - 短信落地：`s.siweichongsu.com` nginx 切到 Django 公开页（修商城 404）；SendSms 参数 `${product_name}`+`${code}`；选品支持多类型排除。见 `sms_landing_shortlink_plan.md`。
 - **工作台 · 结算快照指纹比对列**：内容指纹仅比对订单状态、商品金额/数量、直播类列、特殊情况列；可用 `recompute_order_snapshot_fingerprints --settlement-month YYYY-MM --commit` 回填标签。见 `order_settlement_snapshot_plan.md` T21a。
 
