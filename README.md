@@ -12,6 +12,7 @@
 
 ### 2026-08-12
 
+- **运维 · 短信落地 · 助教成效统计**：按助教/短链看 CTA 与加人（编辑页「号池成效」、号库跨链汇总）；事件与日表冗余 `assistant_id`；加人率口径统一为加人÷CTA。见 `sms_landing_shortlink_plan.md` SL-T-56/57。
 - **运维 · 短信落地 · 助教号细粒度审计**：配置保存写短链级 + 每变更号级审计（权重/启停/增删）；审计页可按助教名过滤。见 `sms_landing_shortlink_plan.md` SL-T-55。
 - **工作台 · 提醒文案 · 通知对象**：每个场景可编并在侧栏展示；选项为「仅销售 / 业务圈定对象」；结算就绪与认领摘要默认只推销售。见 `workbench_notify_hub_plan.md` NH-12。
 - 短信落地：`s.siweichongsu.com` nginx 切到 Django 公开页（修商城 404）；SendSms 参数 `${product_name}`+`${code}`；选品支持多类型排除。见 `sms_landing_shortlink_plan.md`。
