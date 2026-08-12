@@ -12,7 +12,12 @@
 
 ### 2026-08-12
 
-- **工作台 · 功能引导助手（P0–P2）**：右下角浮球入口；**小窗 → 扩大 → 全屏**三段式浮层；百炼模型 + **知识库 RAG** + **记忆库**跨会话偏好（`GUIDE_AGENT_MEMORY_ID`）；权限内打开页面/重放新手引导；可选企微收消息回调。总闸 `SIWEICHONGSU_GUIDE_AGENT_ENABLED`。见 `workbench_guide_agent_plan.md`、`aliyun_bailian_llm.md`。
+- **工作台 · 功能引导助手 · 知识库自动同步**：`python manage.py sync_guide_agent_kb [--commit]` 经百炼 OpenAPI 上传 `knowledge/*.md`（无需改工作台 OSS）。见 `aliyun_bailian_llm.md` §3.2、GA-27。
+- **工作台 · 功能引导助手 · 防冲突四件套**：能力表优先短答闸（改密/结算等跳过 LLM 瞎编）；黄金问集 ≥30 离线门禁；发版须导出知识+测全绿+覆盖上传百炼。见 `workbench_guide_agent_plan.md` GA-24～26。
+- **工作台 · 个人中心文案**：TOC「经营数据」改为「个人订单」；「我的文件」三路来源；引导助手知识库 07–09（含纠正「不支持改密」）。见 `me_personal_files_plan.md`、`workbench_guide_agent_plan.md`。
+- **工作台 · 功能引导助手 · 按钮去重 + 多轮评估**：同 scene 重复「去订单认领/页」合并为规范双入口；预发多轮可用性剧本见 plan GA-UAT-02。
+- **工作台 · 功能引导助手 · 知识库补齐**：导出包新增认领/歧义说明与分场景 howto；对话按问句注入检索片段（缺单强制附操作说明），操作正文不再只靠 `constants`/`tools`。见 `workbench_guide_agent_plan.md` GA-15、`aliyun_bailian_llm.md` §3（需覆盖上传 05/06）。
+- **工作台 · 功能引导助手（P0–P2）**：右下角浮球；三段式浮层；百炼对话 + **function calling**（打开页面/重放引导/列功能）+ 知识库 RAG + 记忆库；可选企微收消息。总闸 `SIWEICHONGSU_GUIDE_AGENT_ENABLED`。见 `workbench_guide_agent_plan.md`、`aliyun_bailian_llm.md`。
 - **运维 · 短信发送审计（任务记录+消耗统计）**：工作台发送记录页拆「短信记录 / 消耗统计」；明细对齐控制台送达与报告时间、链接点击；日汇总条数/金额估算（`sms_send_log`×单价）。见 `sms_landing_shortlink_plan.md` SL-T-58。
 - **运维 · 短信发送记录 ↔ 阿里云对齐**：工作台「送达结果」列（与控制台发送成功/失败一致）；Beat 每 5 分钟自动 `QuerySendDetails` 刷新 pending；试发 `run_aliyun_sms_send.py --promo --write-log`。见 `sms_landing_shortlink_plan.md` §5.6。
 - **运维 · 短信落地 · 公开页 TOC 多端**：`s.siweichongsu.com/{code}` 三步激活条 + 双栏布局（桌面 sticky TOC / 移动横滑）；单 CTA 与 assign 埋点不变；工作台预览同步。见 `sms_landing_shortlink_plan.md` §10.1。
