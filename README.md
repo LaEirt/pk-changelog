@@ -12,6 +12,7 @@
 
 ### 2026-08-12
 
+- **工作台 · 提醒文案 · 通知对象**：每个场景可编并在侧栏展示；选项为「仅销售 / 业务圈定对象」；结算就绪与认领摘要默认只推销售。见 `workbench_notify_hub_plan.md` NH-12。
 - 短信推广：SendSms 模板参数对齐 `${product_name}`+`${code}`；绑定商品选择器新增多类型排除（平台/店铺/IP/全称）。见 `sms_landing_shortlink_plan.md`。
 - **工作台 · 结算快照指纹比对列**：内容指纹仅比对订单状态、商品金额/数量、直播类列、特殊情况列；可用 `recompute_order_snapshot_fingerprints --settlement-month YYYY-MM --commit` 回填标签。见 `order_settlement_snapshot_plan.md` T21a。
 - **工作台 · 我的文件 → 数据比对指引**：个人中心「我的文件」增加指引条与「去数据比对」链接，说明可对本盘 Excel/CSV 做行级比对（支持选盘）。见 `me_personal_files_plan.md` PF-19、`data_compare_plan.md`。
