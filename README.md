@@ -4,14 +4,19 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-12
+- 同步日：2026-08-13
 
 ---
 
 ## 更新动态
 
+### 2026-08-13
+
+- **工作台 · 结算快照「有变更」误标修复**：生成期指纹改为落盘 round-trip 后再哈希；并对 `2026-07` V7 回填标签（全员误「有变更」→ 约半数「与上版一致」）。见 `order_settlement_snapshot_plan.md` T21a。
+
 ### 2026-08-12
 
+- **工作台 · 系统公告体验**：弹窗加宽；正文图片可点击全屏预览；管理列表中文状态色标 +「生效中」+ 更新时间，便于区分新旧与当前是否在投。见 `announcement_enterprise_gap_plan.md` UX-IMG / UX-LIST。
 - **工作台 · 功能引导助手 · 知识库自动同步**：`python manage.py sync_guide_agent_kb [--commit]` 经百炼 OpenAPI 上传 `knowledge/*.md`（无需改工作台 OSS）。见 `aliyun_bailian_llm.md` §3.2、GA-27。
 - **工作台 · 功能引导助手 · 防冲突四件套**：能力表优先短答闸（改密/结算等跳过 LLM 瞎编）；黄金问集 ≥30 离线门禁；发版须导出知识+测全绿+覆盖上传百炼。见 `workbench_guide_agent_plan.md` GA-24～26。
 - **工作台 · 个人中心文案**：TOC「经营数据」改为「个人订单」；「我的文件」三路来源；引导助手知识库 07–09（含纠正「不支持改密」）。见 `me_personal_files_plan.md`、`workbench_guide_agent_plan.md`。
