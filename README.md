@@ -4,14 +4,19 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-13
+- 同步日：2026-08-14
 
 ---
 
 ## 更新动态
 
-### 2026-08-13
+### 2026-08-14
 
+- **数仓 · 企微 / 银行 schema 拆分完成**：宽表与推送落 `企业微信` / `企业微信_push`；对公收款 schema rename 为 `其他银行收款`；ADS/认领相关 SQL 已切流；OA 推送以 push 总表为准（ORM 双写默认关）。见 `wecom_bank_schema_governance_plan.md`。
+- **数仓 · 直播订单汇总补快手**：`refresh_直播订单汇总` / `sql/直播数据.sql` 按抖音同口径纳入快手公域（`带货人视频号=账号` + 直播流量 + 时间窗）；`/me` 直播 tab 与结算快照随 ADS 带上。见 `me_live_orders_plan.md`。
+- **工作台 · 分销账号一键审批增强**：一键按钮常显；新 Tab「历史申请记录」；企微历史 OA 最长 365 天回填入申请单；引导/tour 强化「先搜索再申请」。见 `account_oa_approval_plan.md`。
+- **工作台 · 分销账号一键企微审批（P0 收尾）**：OA-03/21 全绿；RBAC §5.4 / 引导知识库 / capability map 改为「一键申请（截图降级）」；ECS 部署脚本 `deploy_account_oa_ecs.py`。见 `account_oa_approval_plan.md`。
+- **工作台 · 分销账号一键企微审批（P0）**：查询有结果后可「一键发起变更申请」；`oa_template` / `oa_apply` / `oa_detail`；对照真实模板控件；通过后**不**自动写维表。见 `account_oa_approval_plan.md`。
 - **工作台 · 结算快照「有变更」误标修复**：生成期指纹改为落盘 round-trip 后再哈希；并对 `2026-07` V7 回填标签（全员误「有变更」→ 约半数「与上版一致」）。见 `order_settlement_snapshot_plan.md` T21a。
 
 ### 2026-08-12
