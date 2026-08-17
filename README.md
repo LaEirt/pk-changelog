@@ -4,20 +4,28 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-14
+- 同步日：2026-08-17
 
 ---
 
 ## 更新动态
 
+### 2026-08-17
+
+- **集成 · 小红书订单推送入库**：新增 `POST /api-data/push_from/xiaohongshu/api_xiaohongshu_push`（`小红书_push` 总表/`evt_*`/Celery）；对接开放平台应用消息推送验签与 `{"test":true}` 探测。见 `integrations/小红书/push/index.md`（`index.md`）、`push_data_spec.md` §2.6。
+- **集成 · 快手订单推送核查**：小店订单侧公开协议不足（勿用小程序 Webhook 冒充），结论见 `integrations/快手/push/index.md`（`index.md`）。
+
 ### 2026-08-14
 
+- **工作台 · 分销账号申请文案澄清**：按钮改为「一键申请绑定到我」；明确仅登录本人、不能代他人换绑；页内三步条/弹窗/RAG/tour 同步。见 `account_oa_approval_plan.md`。
+- **工作台 · 分销账号变更申请视觉引导**：页内「查询→确认→申请」三步条；无结果时一键按钮灰色；历史/成功页彩色状态标签；el-tour 升为 `account_v2`；RAG/capability 同步「先搜后申」。见 `account_oa_approval_plan.md`。
+- **数仓 · 企微 schema 治理二期**：引导智能体企微消息落 `企业微信_push.evt_guide_agent_text`（可走统一 `push_from`）；员工/部门表 `wecome_*` rename 为 `wecom_employee` / `wecom_department`。见 `wecom_bank_schema_governance_plan.md` §7.2。
 - **数仓 · schema 切流漏网补丁**：现网清零「企微与农行」函数引用（含支付宝 bank seed / 全域刷新旁路 / quick_bi）；对外收款 HTTP 补 AEAD 第二层；工作台姓名源与认领 JOIN 对齐 `企业微信`。见 `wecom_bank_schema_governance_plan.md`。
 - **数仓 · 企微 / 银行 schema 拆分完成**：宽表与推送落 `企业微信` / `企业微信_push`；对公收款 schema rename 为 `其他银行收款`；ADS/认领相关 SQL 已切流；OA 推送以 push 总表为准（ORM 双写默认关）。见 `wecom_bank_schema_governance_plan.md`。
 - **数仓 · 直播订单汇总补快手**：`refresh_直播订单汇总` / `sql/直播数据.sql` 按抖音同口径纳入快手公域（`带货人视频号=账号` + 直播流量 + 时间窗）；`/me` 直播 tab 与结算快照随 ADS 带上。见 `me_live_orders_plan.md`。
 - **工作台 · 分销账号一键审批增强**：一键按钮常显；新 Tab「历史申请记录」；企微历史 OA 最长 365 天回填入申请单；引导/tour 强化「先搜索再申请」。见 `account_oa_approval_plan.md`。
 - **工作台 · 分销账号一键企微审批（P0 收尾）**：OA-03/21 全绿；RBAC §5.4 / 引导知识库 / capability map 改为「一键申请（截图降级）」；ECS 部署脚本 `deploy_account_oa_ecs.py`。见 `account_oa_approval_plan.md`。
-- **工作台 · 分销账号一键企微审批（P0）**：查询有结果后可「一键发起变更申请」；`oa_template` / `oa_apply` / `oa_detail`；对照真实模板控件；通过后**不**自动写维表。见 `account_oa_approval_plan.md`。
+- **工作台 · 分销账号一键企微审批（P0）**：查询有结果后可「一键申请绑定到我」；`oa_template` / `oa_apply` / `oa_detail`；对照真实模板控件；通过后**不**自动写维表。见 `account_oa_approval_plan.md`。
 - **工作台 · 结算快照「有变更」误标修复**：生成期指纹改为落盘 round-trip 后再哈希；并对 `2026-07` V7 回填标签（全员误「有变更」→ 约半数「与上版一致」）。见 `order_settlement_snapshot_plan.md` T21a。
 
 ### 2026-08-12
