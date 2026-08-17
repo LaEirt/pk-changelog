@@ -12,8 +12,8 @@
 
 ### 2026-08-17
 
+- **集成 · 快手小店订单推送入库**：新增 `POST /api-data/push_from/kuaishou/api_kuaishou_push`（`快手订单_push`）；对接官方 [`kwaishop_order_paySuccess`](https://open.kwaixiaodian.com/zone/new/docs/msg?name=kwaishop_order_paySuccess&version=1) / [`orderSuccess`](https://open.kwaixiaodian.com/zone/new/docs/msg?name=kwaishop_order_orderSuccess&version=1)（AES `messageSecret`）。见 `integrations/快手/push/index.md`（`index.md`）。
 - **集成 · 小红书订单推送入库**：新增 `POST /api-data/push_from/xiaohongshu/api_xiaohongshu_push`（`小红书_push` 总表/`evt_*`/Celery）；对接开放平台应用消息推送验签与 `{"test":true}` 探测。见 `integrations/小红书/push/index.md`（`index.md`）、`push_data_spec.md` §2.6。
-- **集成 · 快手订单推送核查**：小店订单侧公开协议不足（勿用小程序 Webhook 冒充），结论见 `integrations/快手/push/index.md`（`index.md`）。
 
 ### 2026-08-14
 
