@@ -12,7 +12,9 @@
 
 ### 2026-08-19
 
-- **商城 · 首页 ToC 观感评估入文档**：交互已齐、视觉仍偏素；下一轮建议主视觉置顶 / 楼层话术 / 商品卡角标（UX-13）。见 `UI_DESIGN.md` §4.3.2、benchmark plan（`storefront_toc_benchmark_plan.md`） §4.2.1。
+- **课程讲解 · 历史标题**：新对话首轮用短模型总结侧栏标题（失败则截断问句）；续聊与手改标题不覆盖。见 `course_tutor_agent_plan.md` §0.7 / D8。
+- **商城 · UX-13 首页观感落地**：精选轮播置顶、渠道下移 compact、楼层口语副标题、商品卡精选/热卖角标、导购 chips。见 `UI_DESIGN.md` §4.3.2。
+- **课程讲解 · 历史会话稳定性**：LLM 失败不再留下空会话；连点历史不串泡；发送失败回滚气泡并还原输入；API-05 回带 `teacher_id` 防串老师；DELETE 204 空 body 不再误判。见 `course_tutor_agent_plan.md` §0.7 / API-05。
 - **课程讲解 · 历史会话**：`/course-tutor` 桌面侧栏 / 移动抽屉；列表、还原续聊、新对话、删除；API DELETE/PATCH 会话。见 `course_tutor_agent_plan.md` §0.7。
 - **课程助手 · 独立 schema**：业务 8 表迁入 `course_agent`（迁移 0095，对齐 `sms`）。见 plan §3.0。
 - **商城支付宝 P0–P2**：交易 notify 验签剔除 `sign_type`；回跳不再误关在途单；关单前 query/close；免登录结果页轮询 30s。见 benchmark plan（`storefront_toc_benchmark_plan.md`） §6。
