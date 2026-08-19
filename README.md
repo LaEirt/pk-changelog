@@ -12,11 +12,11 @@
 
 ### 2026-08-19
 
+- **商城 · 首页 ToC 观感评估入文档**：交互已齐、视觉仍偏素；下一轮建议主视觉置顶 / 楼层话术 / 商品卡角标（UX-13）。见 `UI_DESIGN.md` §4.3.2、benchmark plan（`storefront_toc_benchmark_plan.md`） §4.2.1。
 - **课程讲解 · 历史会话**：`/course-tutor` 桌面侧栏 / 移动抽屉；列表、还原续聊、新对话、删除；API DELETE/PATCH 会话。见 `course_tutor_agent_plan.md` §0.7。
 - **课程助手 · 独立 schema**：业务 8 表迁入 `course_agent`（迁移 0095，对齐 `sms`）。见 plan §3.0。
 - **商城支付宝 P0–P2**：交易 notify 验签剔除 `sign_type`；回跳不再误关在途单；关单前 query/close；免登录结果页轮询 30s。见 benchmark plan（`storefront_toc_benchmark_plan.md`） §6。
-- **商城 · 店铺渠道**：首页「我们还有这些店铺渠道」；含抖店二维码（OSS）；运营台「引流店铺」可改链接/上传码。见 `storefront_ops_console_plan.md` §11.7。
-- **商城 · 顶栏品牌 logo**：思维重塑顶栏展示破壳小鸡 logo；OSS 按 `brand/logo` 与 `channels/qr/{平台}` 分类存放。
+- **商城 · 店铺渠道**：首页「我们还有这些店铺渠道」；含抖店二维码（OSS）；运营台「引流店铺」可改链接/上传码；顶栏品牌 logo；OSS 按 `brand/logo` 与 `channels/qr/{平台}` 分类。见 `storefront_ops_console_plan.md` §11.7。
 - **商城运营台 · 跨端互跳防 404**：未登录不再相对跳 `/workbench/login`（本地会打到商城 :3000）；改走 `NUXT_PUBLIC_WORKBENCH_ORIGIN`（dev `:3001`），环回 host 与地址栏对齐以免 Cookie 丢失。见 `storefront_ops_console_plan.md`。
 - **商城运营台 · 商品编辑左编右预**：发布/编辑页对标工作台短信落地短链——白话 intro、四步锚点、右侧实时预览（图文步手机商详）+ 就绪勾选；小白可按 1→4 上架。见 `storefront_ops_console_plan.md` §11.6.6。
 - **课程助手 · 李伟文对齐**：展示名统一 **李伟文**；人设进 system（不进课稿 KB）；对话 RAG 改百炼 OpenAPI Retrieve；授权用户多轮命中实调 PASS。见 `course_tutor_agent_plan.md`。
