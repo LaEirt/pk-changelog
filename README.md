@@ -4,15 +4,36 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-17
+- 同步日：2026-08-19
 
 ---
 
 ## 更新动态
 
+### 2026-08-19
+
+- **课程助手 · 李伟文对齐**：展示名统一 **李伟文**；人设进 system（不进课稿 KB）；对话 RAG 改百炼 OpenAPI Retrieve；授权用户多轮命中实调 PASS。见 `course_tutor_agent_plan.md`。
+- **商城 · 课程讲解全屏**：顶栏 Tab「课程讲解」→ `/course-tutor`；全幅 IP 海报 + **铺满**半透明对话层；工作台「设置」可上传海报（OSS `products/course_agent/teachers/…`）。见 `PORTRAIT_SPEC.md`。
+- **商城 · 手机号登录**：未注册号也会真实发短信验证码；验证通过后自动创建买家账号（随机口令，可后续设密）。见 `STOREFRONT_SCHEME.md` §5.2。
+- **课程助手 · 李伟文文稿已清洗入百炼**：Raw 仅 `web/智能体原始稿/李纬文课程逐字稿/`；清洗稿同步百炼 KB。见 `course_tutor_agent_plan.md`。
+- **工作台 · 智能体管理**：授权用户 / 订单开通 / 自动规则 / 限流 / 知识上传 / **IP 海报上传**；权限码 `course_agent_acl_read/write`。
+- **课程助手 · 多老师隔离与编排修补**：拒答、退款作废、导入并集、对话超时与切老师丢弃进行中回复。
+
+### 2026-08-18
+
+- **工作台 · 短信推广编辑预览**：右侧实时预览铺满当前高度，按「绑定商品 / 号池 / 发送时间 / 落地页 / 成效」展示更完整的配置摘要（KPI、名单、就绪检查）。见 `sms_landing_shortlink_plan.md` §10.2。
+- **工作台 · 同事分组同步全域订单**：分销账号「同事分组」保存后立即把 `日报.全域订单` 的分组/次级分组对齐 `抖音订单.同事_分组`（含历史行）；存量回填 `scripts/db/align_quanyu_colleague_group.py`。见 `colleague_group_ads_sync_plan.md`。
+- **工程 · `.env` 只放密钥/账号**：JWT/导出 TTL、OSS 前缀、短信验证码 TTL/日限、落地 schema 与短链 host、退款宽限、引导智能体日限/RPM、通知合并窗口、财务定稿批上限、罗盘心跳等改为 `settings.py` 字面量；运维回滚仍用 `DW_ENTITLEMENT_REFUND_LEGACY`。见 `env-secrets-only.mdc`。
+
 ### 2026-08-17
 
-- **集成 · 快手小店订单推送入库**：新增 `POST /api-data/push_from/kuaishou/api_kuaishou_push`（`快手订单_push`）；对接官方 [`kwaishop_order_paySuccess`](https://open.kwaixiaodian.com/zone/new/docs/msg?name=kwaishop_order_paySuccess&version=1) / [`orderSuccess`](https://open.kwaixiaodian.com/zone/new/docs/msg?name=kwaishop_order_orderSuccess&version=1)（AES `messageSecret`）。见 `integrations/快手/push/index.md`（`index.md`）。
+- **工作台 · 短信推广未打开补发**：短链可开「发送后未打开落地页则等待后再发」；可配等待时长与最多再发次数（默认关 / 24 小时 / 1 次）。见 `sms_landing_shortlink_plan.md` §2.8.2。
+- **工作台 · 短信推广封面可选**：短链可开关「展示封面图」；仅开启时要求上传且公开落地页出图；换图/清空时自动删除旧 OSS `sms_landing/` 对象。见 `sms_landing_shortlink_plan.md` FR-05。
+- **工作台 · 短信推广短链平台闸门**：落地短链可配置购后短信「不限 / 仅允许 / 排除」平台（对齐全域订单平台原文）；编排跳过记 `skipped_platform`。见 `sms_landing_shortlink_plan.md` §2.8.1。
+- **工作台 · 短信推广分配规则默认轮询**：新建短链默认 `round_robin`；号池从「单号」扩到多号时自动切到轮询（不再默认权重随机）。
+- **工作台 · 短信推广选品去掉排除**：绑定商品仅保留搜索 + IP/平台/店铺纳入筛选。
+- **工作台 · 短信推广编辑页锚点滚动**：合并号池与分配规则；一页纵向配置 + sticky 锚点跳转，右侧预览跟随当前区块。
+- **集成 · 快手小店订单推送入库**：新增 `POST /api-data/push_from/kuaishou/api_kuaishou_push`（`快手订单_push`）；已按官方消息文档对齐订单状态/新增/地址/费用变更与售后新增·更新（AES `messageSecret`）。见 `integrations/快手/push/index.md`（`index.md`）。
 - **集成 · 小红书订单推送入库**：新增 `POST /api-data/push_from/xiaohongshu/api_xiaohongshu_push`（`小红书_push` 总表/`evt_*`/Celery）；对接开放平台应用消息推送验签与 `{"test":true}` 探测。见 `integrations/小红书/push/index.md`（`index.md`）、`push_data_spec.md` §2.6。
 
 ### 2026-08-14
@@ -43,7 +64,7 @@
 - **运维 · 短信落地 · 助教成效统计**：按助教/短链看 CTA 与加人（编辑页「号池成效」、号库跨链汇总）；事件与日表冗余 `assistant_id`；加人率口径统一为加人÷CTA。见 `sms_landing_shortlink_plan.md` SL-T-56/57。
 - **运维 · 短信落地 · 助教号细粒度审计**：配置保存写短链级 + 每变更号级审计（权重/启停/增删）；审计页可按助教名过滤。见 `sms_landing_shortlink_plan.md` SL-T-55。
 - **工作台 · 提醒文案 · 通知对象**：支持「仅销售 / 业务圈定 / 指定同事」；指定同事多选联动工作台账号；侧栏展示摘要。见 `workbench_notify_hub_plan.md` NH-12/13。
-- 短信落地：`s.siweichongsu.com` nginx 切到 Django 公开页（修商城 404）；SendSms 参数 `${product_name}`+`${code}`；选品支持多类型排除。见 `sms_landing_shortlink_plan.md`。
+- 短信落地：`s.siweichongsu.com` nginx 切到 Django 公开页（修商城 404）；SendSms 参数 `${product_name}`+`${code}`；选品为花名册纳入筛选。见 `sms_landing_shortlink_plan.md`。
 - **工作台 · 结算快照指纹比对列**：内容指纹仅比对订单状态、商品金额/数量、直播类列、特殊情况列；可用 `recompute_order_snapshot_fingerprints --settlement-month YYYY-MM --commit` 回填标签。见 `order_settlement_snapshot_plan.md` T21a。
 
 ### 2026-08-11
@@ -56,7 +77,7 @@
 - **运维 · 短信落地 · 购后推广编排（W2.7）**：水位 `sms_send_watermark` 初始化为上线时刻、不扫历史；Celery Beat `sms_promo_orchestrator_tick` 捞 `日报.全域订单` 新增有手机号订单，命中短链后发推广短信并写 `sms_send_log`；支持 `run_sms_promo_orchestrator` dry-run。见 `sms_landing_shortlink_plan.md` §2.8 / §5.6。
 - **运维 · 短信 · OTP 入发送记录**：工作台绑手机/登录等验证码发送成败写入 `sms.sms_send_log`（`sms_type=otp`，快照掩码验证码）；与推广 TemplateCode 强制隔离（SL-T-12 / SL-T-30）。见 `sms_landing_shortlink_plan.md` §5.6、`aliyun_sms.md`。
 - **运维 · 短信落地 · 发送记录（物料）**：短信推广「发送记录」；`sms.sms_send_log` 记发送/回执双状态、内容快照、计费条数；支持刷新回执（QuerySendDetails）、失败单条重试、CSV 导出与短链打开/CTA 漏斗。见 `sms_landing_shortlink_plan.md` §5.6 / §10.4。
-- **运维 · 短信落地 · 独立 schema**：业务表迁入 PostgreSQL schema `sms`（`SMS_SCHEMA` 可覆盖）；与 `public` / 咨询域隔离；后续发送表同 schema。见 `sms_landing_shortlink_plan.md` §5.0。
+- **运维 · 短信落地 · 独立 schema**：业务表在 PostgreSQL schema `sms`（`settings.SMS_SCHEMA`）；与 `public` / 咨询域隔离；后续发送表同 schema。见 `sms_landing_shortlink_plan.md` §5.0。
 - **运维 · 短信落地 · 推广发送时间**：短链可配「尽快 / 每日时段 / 每日定点」与延迟；窗外延后，编排遵从该窗。见 `sms_landing_shortlink_plan.md` §2.8.1。
 - **运维 · 短信落地 · 配置审计页**：短信推广「落地短链审计」；支持按动作/操作者/短码/商品键/日期筛选，详情含字段级前后对比与完整 JSON。见 `sms_landing_shortlink_plan.md` §10.3。
 - **运维 · 短信落地短链 · 号池效率（P0/P1）**：批量粘贴 / 复制号池；助教号库与助教组多选挂入；页内「落地短链 / 助教号库 / 助教组」三 Tab。见 `sms_landing_shortlink_plan.md` §2.7。
