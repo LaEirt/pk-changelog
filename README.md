@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **工作台 · 商城运营可直接授予**：Admin 用户/角色模块卡新增「商城运营」（`store_ops`）；亦可选用预设「商城客服 / 履约 / 全量」。见 `workbench_rbac.md` §4。
 - **商城运营台 · 权限桥接**：工作台「商品管理」模块用户可进 `/store/admin` 并维护商品/库存等；本地登录跳转环回回落 `:3001`，避免打到商城 404。见 ops §3.3（`storefront_ops_console_plan.md`）。
 - **商城运营台 · 首页图片**：主视觉轮播与老师介绍图可在 `/store/admin/home-media` 上传维护；有启用轮播时首页优先展示，否则仍回退精选商品封面。见 ops §11.10（`storefront_ops_console_plan.md`）。
 - **商城 · 首页回访加速**：首页 keepalive + 客户端不阻塞导航；recommend/hot 90s 缓存、列表不回传详情 HTML；二次进首页接近瞬时。见 benchmark §8.3（`storefront_toc_benchmark_plan.md`）。
