@@ -12,6 +12,11 @@
 
 ### 2026-08-20
 
+- **商城 · 首页老师介绍（UX-14）**：桌面/移动双端定稿布局 I（大图横滑）；陈聪/李伟文/王培霖/常军；图上 OSS `products/teachers/home/*.webp`。见 `UI_DESIGN.md` §4.3.3。
+- **商城买家 · 淘宝式购物车/订单/购买（§14 FE）**：购物车失效行与混选拦截、移动端隐藏 tabbar；订单列表实付卡+去支付倒计时/去上课/物流/售后/再买一单与待发货 Tab；结算可改数量与默认最优券；pay-return 认 `out_trade_no`；微信内收银台提示。见 benchmark §14（`storefront_toc_benchmark_plan.md`）。
+- **商城运营台 · 售后 P1**：类型 `ticket_type`、`refund_amount`、进度条、超时/配送筛选、内部备注；淘宝式同意退款。见 ops §11.9（`storefront_ops_console_plan.md`）。
+- **商城运营台 · 售后/订单一期对齐淘宝京东**：待付款状态码、待发货/已发货 Tab、售后列表订单号+买家、售后中禁发货、退款回库存+小鹅通吊权、批量发货禁止假运单。见 ops §11.8（`storefront_ops_console_plan.md`）。
+- **商城 · 售后原路退款前后端打通**：工单详情认领→「原路退款并解决」调支付宝退款；订单/流水 uuid 兼容；运营台 Nuxt 已发 ECS。见 benchmark plan（`storefront_toc_benchmark_plan.md`） §6.6。
 - **商城 · 暖底与主色**：页面底改为暖中性 `#faf6f4`，消除渠道置顶冷灰白条；登录/搜索等 primary 按钮强制破壳珊瑚，避免 Element Plus 默认蓝回潮。见 `UI_DESIGN.md`。
 - **课程助手 · 术语通俗化**：人设与 system 强制「先白话、后术语」；专业词须紧跟「说白了就是…」类解释，减少金融黑话堆砌。见 `course_tutor_agent_plan.md`。
 
