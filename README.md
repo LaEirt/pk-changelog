@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **商城 · 首页回访加速**：首页 keepalive + 客户端不阻塞导航；recommend/hot 90s 缓存、列表不回传详情 HTML；二次进首页接近瞬时。见 benchmark §8.3（`storefront_toc_benchmark_plan.md`）。
 - **工作台 · 课程助手知识上传 P0.5/P1**：下载预填 YAML 模板、复制清洗提示词、分类失败文案、上传后试问引导、已入库文稿列表（API-W15/W16）。见 `course_tutor_agent_plan.md` §7.4.2。
 - **商城运营台 · 商品筛选**：IP/简称下拉（商品列表匹配花名册）、关键词含 IP、热卖/精选/小鹅通关联筛选。见 ops §11.6（`storefront_ops_console_plan.md`）。
 - **商城 · 联系我们**：帮助中心 `/help#contact` 上线企微客服官方二维码；页脚「企业微信客服 / 联系我们」直达。见 `UI_DESIGN.md`。
