@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **工作台 · 公开能力页 ToC 展台**：`/workbench/public` 非管理员增加数据流时间线、能力域环图、分组条形图与场景卡片（单源 `workbenchCapabilityMap`；结构计数无假业绩）；入场/流动动效尊重 `prefers-reduced-motion`。见 `UI_DESIGN.md` §5.3。
 - **商城 · 支付成功/开课/吊权链路**：Celery 开通结果不再误用 `_finish`（成功也 KeyError）；吊权与开通共用小鹅 resource 映射；退款 `revoked` 覆盖 pending；支付结果页等开通终态再显「去上课」。见 benchmark §7（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 支付/退款硬化**：notify 幂等补漏开课入队；部分退款不标整单 `refunded`；运营台退款金额认请求体；线上课下单 BE 校验已绑手机。见 benchmark §6.6（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 注册登录审计 P0–P2**：绑手机可认领「仅手机无消费」壳账号；找回发码统一文案；邮箱验证码 consume + TTL 单源；OTP 新用户 `is_new_user` 设密引导；邮箱重置清登录锁；FE 文案/错误透传/会话 fail-closed。见 benchmark §5.4（`storefront_toc_benchmark_plan.md`）。
