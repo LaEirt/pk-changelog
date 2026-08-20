@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **商城 · 首页楼层销量口径**：本周精选按 `日报.全域订单` 小鹅通本周销量；大家在看按全平台累计销量（对齐上架商品名/简称/小鹅 id）。见 benchmark §8.3 F7（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 首页老师介绍（UX-14）**：桌面/移动双端定稿布局 I（大图横滑）；陈聪/李伟文/王培霖/常军；图上 OSS `products/teachers/home/*.webp`。见 `UI_DESIGN.md` §4.3.3。
 - **商城买家 · 淘宝式购物车/订单/购买（§14 FE）**：购物车失效行与混选拦截、移动端隐藏 tabbar；订单列表实付卡+去支付倒计时/去上课/物流/售后/再买一单与待发货 Tab；结算可改数量与默认最优券；pay-return 认 `out_trade_no`；微信内收银台提示。见 benchmark §14（`storefront_toc_benchmark_plan.md`）。
 - **商城运营台 · 售后 P1**：类型 `ticket_type`、`refund_amount`、进度条、超时/配送筛选、内部备注；淘宝式同意退款。见 ops §11.9（`storefront_ops_console_plan.md`）。
