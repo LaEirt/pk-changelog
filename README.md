@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **商城运营台 · 商品筛选**：IP/简称下拉（商品列表匹配花名册）、关键词含 IP、热卖/精选/小鹅通关联筛选。见 ops §11.6（`storefront_ops_console_plan.md`）。
 - **商城 · 联系我们**：帮助中心 `/help#contact` 上线企微客服官方二维码；页脚「企业微信客服 / 联系我们」直达。见 `UI_DESIGN.md`。
 - **商城 · 自动开课**：手机号未在小鹅通时先注册再开课；购物/支付结果引导「去上课」到小鹅通并用同手机号登录。见 benchmark §7（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 首页老师介绍联动课程讲解**：开通讲解的老师（当前李伟文）主入口进 `/course-tutor?teacher=`，专场为次 CTA。见 `UI_DESIGN.md` §4.3.3。
