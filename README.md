@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **商城 · 注册登录审计 P0–P2**：绑手机可认领「仅手机无消费」壳账号；找回发码统一文案；邮箱验证码 consume + TTL 单源；OTP 新用户 `is_new_user` 设密引导；邮箱重置清登录锁；FE 文案/错误透传/会话 fail-closed。见 benchmark §5.4（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 课程老师拟人回复**：去掉人设里的 `**` 示范；system 禁 Markdown；回复后处理剥加粗/标题；气泡仍为纯文本。见 `course_tutor_agent_plan.md`。
 - **商城 · 手机 OTP 自动建号**：修复未注册登录 500（`email=''` 撞 `uk_user_email`）；建号改写 `NULL`；邮箱注册同理 `phone=NULL`。见 benchmark §5.4（`storefront_toc_benchmark_plan.md`）。
 - **店铺运营 · 与商品管理解耦**：仅 `store_ops_*` 可进 `/store/admin`；工作台 Admin「店铺运营」模块卡 / 预设「店铺客服·履约·全量」授予；侧栏文案同步。见 `workbench_rbac.md` §4、ops §3.3（`storefront_ops_console_plan.md`）。
