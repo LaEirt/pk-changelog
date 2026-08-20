@@ -12,6 +12,7 @@
 
 ### 2026-08-20
 
+- **商城 · 手机 OTP 自动建号**：修复未注册登录 500（`email=''` 撞 `uk_user_email`）；建号改写 `NULL`；邮箱注册同理 `phone=NULL`。见 benchmark §5.4（`storefront_toc_benchmark_plan.md`）。
 - **店铺运营 · 与商品管理解耦**：仅 `store_ops_*` 可进 `/store/admin`；工作台 Admin「店铺运营」模块卡 / 预设「店铺客服·履约·全量」授予；侧栏文案同步。见 `workbench_rbac.md` §4、ops §3.3（`storefront_ops_console_plan.md`）。
 - **工作台 · 商城运营可直接授予**：Admin 用户/角色模块卡新增「店铺运营」（`store_ops`）；亦可选用预设。见 `workbench_rbac.md` §4。
 - **商城运营台 · 本地登录跳转**：环回回落 `:3001`，避免打到商城 404。见 ops §3.3（`storefront_ops_console_plan.md`）。
