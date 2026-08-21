@@ -12,6 +12,7 @@
 
 ### 2026-08-21
 
+- **集成 · 支付宝 From 蚂蚁全量订阅入库**：开放平台已订阅 19 类消息均落 `支付宝_push`（专用 `evt_*` + Celery）；映射见 `subscribed-messages.md`。
 - **集成 · 支付宝推送 URL 对齐**：From 蚂蚁应用网关改为 `POST /api-data/push_from/alipay/api_alipay_push`；全渠推送链接汇总见 `integrations/push_urls.md`（`push_urls.md`）。
 - **商城 · 支付宝登录 / 第三方绑定（P0–P1）**：登录页支付宝入口、授权回调关联向导、个人中心绑/解绑；表 `user_info.user_oauth_*`；与收银台支付分离。见 `storefront_alipay_oauth_login_plan.md`（正式 App 授权闭环待 UAT）。
 - **工作台 · 短信推广**：发送记录默认只看购后推广（排除验证码）；修复购后编排自 8/12 起因时区 aware/naive 比较崩溃导致水位停摆、快手应发漏发。见 `sms_landing_shortlink_plan.md`。
