@@ -12,6 +12,7 @@
 
 ### 2026-08-21
 
+- **集成 · 支付宝推送 URL 对齐**：From 蚂蚁应用网关改为 `POST /api-data/push_from/alipay/api_alipay_push`（旧 `…/notify` 兼容保留）；全渠推送链接汇总见 `integrations/push_urls.md`（`push_urls.md`）。
 - **商城 · 支付宝登录 / 第三方绑定（P0–P1）**：登录页支付宝入口、授权回调关联向导、个人中心绑/解绑；表 `user_info.user_oauth_*`；与收银台支付分离。见 `storefront_alipay_oauth_login_plan.md`（正式 App 授权闭环待 UAT）。
 - **工作台 · 短信推广**：发送记录默认只看购后推广（排除验证码）；修复购后编排自 8/12 起因时区 aware/naive 比较崩溃导致水位停摆、快手应发漏发。见 `sms_landing_shortlink_plan.md`。
 - **商城 · 李伟文课程助手**：人设禁追问、课内讲透与数字忠实；`/course-tutor` 对齐主流交互 P0–P2（复制/停止/换行/建议问/改标题/重试/流式揭示/重生/编辑末问/额度/搜索/反馈；**不做**导出分享）。见 `course_tutor_agent_plan.md`。
@@ -249,7 +250,7 @@
 - **集成 · 支付宝 ODS/DWD 分层**：`账务明细` 退回纯 ODS；新建 ETL `支付宝订单`（交易号）/ `支付宝退款`（流水号）；拉数后自动 ETL。见 `integrations/支付宝/`（`README.md`）。
 - **集成 · 支付宝账务明细扩列 + 归档回填**：（已被上一层分层取代；归档 enrichment 进订单表。）
 - **工程 · 第三方集成目录归拢**：平台备忘 / 接口目录 / notebook 统一迁入 `integrations/`（`README.md`）（无根目录兼容层）；拉数仍 `jobs/`、推送仍 `push_data/`。
-- **集成 · 支付宝 From 蚂蚁消息回调**：应用网关 `POST /api-data/push_from/alipay/notify` → `支付宝_push`；接口目录见 `integrations/支付宝/api/index.md`（`index.md`）。
+- **集成 · 支付宝 From 蚂蚁消息回调**：应用网关 `POST /api-data/push_from/alipay/api_alipay_push` → `支付宝_push`；URL 汇总 `integrations/push_urls.md`（`push_urls.md`）；接口目录见 `integrations/支付宝/api/index.md`（`index.md`）。
 - **集成 · 支付宝账务明细 OpenAPI 拉数**：`alipay.data.bill.accountlog.query` → `"支付宝"."账务明细"`；目录同上 + `alipay_account_log_sync_plan.md`。
 - **工作台 · 订单认领筛选全量自动搜索**：平台/店铺/同事/时间/订单号等条件变更后 debounce 自动刷新；仍可点「搜索」立即查询。见 `unclaimed_order` + UI_DESIGN §5.6.5。
 - **工作台 · 默认权限页首访引导扩覆盖**：公域/私域直播填报、订单认领、歧义订单、分销账号均挂 `el-tour`（独立 pageKey，可跳过/帮助重放）；与 Hub 一并覆盖默认权限可达场景；**非默认包（绩效考核）不下挂**。见 `workbench_toc_ux_evolution_plan.md` UX-17。
