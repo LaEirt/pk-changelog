@@ -4,15 +4,22 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-20
+- 同步日：2026-08-21
 
 ---
 
 ## 更新动态
 
+### 2026-08-21
+
+- **商城 · 支付宝登录 / 第三方绑定（P0–P1）**：登录页支付宝入口、授权回调关联向导、个人中心绑/解绑；表 `user_info.user_oauth_*`；与收银台支付分离。见 `storefront_alipay_oauth_login_plan.md`（正式 App 授权闭环待 UAT）。
+- **工作台 · 短信推广**：发送记录默认只看购后推广（排除验证码）；修复购后编排自 8/12 起因时区 aware/naive 比较崩溃导致水位停摆、快手应发漏发。见 `sms_landing_shortlink_plan.md`。
+- **商城 · 李伟文课程助手**：人设禁追问、课内讲透与数字忠实；`/course-tutor` 对齐主流交互 P0–P2（复制/停止/换行/建议问/改标题/重试/流式揭示/重生/编辑末问/额度/搜索/反馈；**不做**导出分享）。见 `course_tutor_agent_plan.md`。
+
 ### 2026-08-20
 
-- **工作台 · 公开能力页 ToC 展台**：`/workbench/public` 非管理员增加数据流时间线、能力域环图、分组条形图与场景卡片（单源 `workbenchCapabilityMap`；结构计数无假业绩）；入场/流动动效尊重 `prefers-reduced-motion`。见 `UI_DESIGN.md` §5.3。
+- **工作台 · 公开能力页业务流程图**：`/workbench/public` **总览** iframe 为「多源汇入 → 主干加工 → 办事/看板/合作商分叉 + 补录回写」权威图；展台仅 CTA 跳转总览，避免双图重复。见 `UI_DESIGN.md` §5.3。
+- **工作台 · 公开能力页 ToC 展台**：非管理员增加能力域环图、分组条形图与场景卡片（结构计数无假业绩）；入场动效尊重 `prefers-reduced-motion`。
 - **商城 · 支付成功/开课/吊权链路**：Celery 开通结果不再误用 `_finish`（成功也 KeyError）；吊权与开通共用小鹅 resource 映射；退款 `revoked` 覆盖 pending；支付结果页等开通终态再显「去上课」。见 benchmark §7（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 支付/退款硬化**：notify 幂等补漏开课入队；部分退款不标整单 `refunded`；运营台退款金额认请求体；线上课下单 BE 校验已绑手机。见 benchmark §6.6（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 注册登录审计 P0–P2**：绑手机可认领「仅手机无消费」壳账号；找回发码统一文案；邮箱验证码 consume + TTL 单源；OTP 新用户 `is_new_user` 设密引导；邮箱重置清登录锁；FE 文案/错误透传/会话 fail-closed。见 benchmark §5.4（`storefront_toc_benchmark_plan.md`）。
