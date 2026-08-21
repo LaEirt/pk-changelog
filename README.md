@@ -12,6 +12,8 @@
 
 ### 2026-08-21
 
+- **商城 · 个人中心主流对齐（UX-15）**：订单图标条（待付款/待发货/已发货/售后）、身份卡脱敏、移动 chips、登录态改密、取消收藏/清空足迹；验收 TB-TOC-PROF-01…06。见 benchmark §4.11（`storefront_toc_benchmark_plan.md`）。
+- **商城 · 登录/个人中心/收银台主流对齐**：登录+注册共用「其他登录方式」圆标行；个人中心第三方左标列表；收银台支付宝品牌选中卡 + 微信灰显「即将开通」。见 alipay oauth §6（`storefront_alipay_oauth_login_plan.md`） · benchmark UX-03（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 微信登录 / 微信支付 SDD**：与支付宝对齐的两份规划文档（同表 OAuth 扩展 · 收银双通道 Native/H5/JSAPI）；枢纽 `integrations/微信开放平台`（`README.md`）。见 `storefront_wechat_oauth_login_plan.md` · `storefront_wechat_pay_plan.md`。
 - **集成 · 支付宝 From 蚂蚁全量订阅入库**：开放平台已订阅 19 类消息均落 `支付宝_push`（专用 `evt_*` + Celery）；映射见 `subscribed-messages.md`。
 - **集成 · 支付宝推送 URL 对齐**：From 蚂蚁应用网关改为 `POST /api-data/push_from/alipay/api_alipay_push`；全渠推送链接汇总见 `integrations/push_urls.md`（`push_urls.md`）。
