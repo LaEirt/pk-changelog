@@ -4,14 +4,22 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-21
+- 同步日：2026-08-24
 
 ---
 
 ## 更新动态
 
+### 2026-08-24
+
+- **商城 · 退款关课状态补强**：`user_order` 新增 `refunded_at` / `revoke_status` / `revoke_at` / `revoke_detail`；关课走 `purchase.delete` 短延迟重试 + `permission.check` 确认，失败由 `store_course_revoke_retry` 补扫。见 benchmark §6.6 / TB-T-DLV-08…09（`storefront_toc_benchmark_plan.md`）。
+- **商城 · 收银台微信支付上线**：`/order/pay/:id` 双通道（Native 出码轮询 / H5 跳转）；WP-03/05/06/09 单测 green；运营台原路退按 `store_payment.channel` 分流。见 `storefront_wechat_pay_plan.md`。
+
 ### 2026-08-21
 
+- **商城 · 支付后开课 ToC**：支付结果页/订单详情用四步进度（付款→账号就绪→开通→可上课）+ 小鹅通登录指引 + 企微客服；叙事「您只需付款，注册与开课自动完成」。见 benchmark §7.4（`storefront_toc_benchmark_plan.md`）。
+- **商城 · 收银双渠目录规整**：`pay/alipay/` 与 `pay/wechat/` 并列；根目录仅留 `views` / `repo` / 跨渠薄 `gateway`·`refund`，消除支付宝平铺与微信嵌套重叠。见 `pay/README.md`（`README.md`）。
+- **商城 · 微信支付 P0 接口落地**：`channel=wechat` prepare（Native/H5/JSAPI 门控）+ `/store/pay/wechat/notify` 验签解密置 payed + 查单/关单接入惰性对账 + 售后按 channel 退款分流；方案与待补齐见 `storefront_wechat_pay_plan.md` §0/§14（当前关联 AppID 为小程序，网页 JSAPI 需服务号）。
 - **商城 · 个人中心主流对齐（UX-15）**：订单图标条（待付款/待发货/已发货/售后）、身份卡脱敏、移动 chips、登录态改密、取消收藏/清空足迹；验收 TB-TOC-PROF-01…06。见 benchmark §4.11（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 登录/个人中心/收银台主流对齐**：登录+注册共用「其他登录方式」圆标行；个人中心第三方左标列表；收银台支付宝品牌选中卡 + 微信灰显「即将开通」。见 alipay oauth §6（`storefront_alipay_oauth_login_plan.md`） · benchmark UX-03（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 微信登录 / 微信支付 SDD**：与支付宝对齐的两份规划文档（同表 OAuth 扩展 · 收银双通道 Native/H5/JSAPI）；枢纽 `integrations/微信开放平台`（`README.md`）。见 `storefront_wechat_oauth_login_plan.md` · `storefront_wechat_pay_plan.md`。
