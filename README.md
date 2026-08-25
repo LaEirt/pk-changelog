@@ -12,6 +12,7 @@
 
 ### 2026-08-25
 
+- **短信推广 · W5 规则形态**：商品 ID 规则改为「专用品 → 助教池 A/B/C/D」（多选），工作台普通 when 行不再混排商品 ID；ADS 近窗回填微信/抖音/快手/小鹅通/小红书 ODS `商品id` 入 `日报.全域订单`。见 `sms_landing_shortlink_plan.md` §2.9。
 - **商城 · 微信登录接口预置**：网站应用审核通过后落地 `/api-data/store/oauth/wechat/*`（与支付宝同表）；`SECRET`+回调域配齐后登录/个人中心去灰。见 `storefront_wechat_oauth_login_plan.md` · `integrations/微信开放平台`（`README.md`）。
 - **短信推广 · 订单级动态路由（W5）**：发信冻结 `route_context`；短链可配规则（平台/流量来源/商品 ID/分销）再分助教；公开 assign 返回 `rule_id`；工作台可试跑。见 `sms_landing_shortlink_plan.md` §2.9。
 - **抖音订单 ODS 断更修复**：仅将 `密文_买家手机号` 扩为 `TEXT`（encrypt 超 255 整批回滚）；小时 Celery 失败邮件改为去重摘要并对 DirectMail 拒信降级重试。见 `integrations/抖音/README.md`（`README.md`）。
