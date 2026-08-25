@@ -12,6 +12,7 @@
 
 ### 2026-08-25
 
+- **小鹅通其余 Beat 拉数 · 全量入库**：商品 list/detail、用户、推广员、直播 list/overview 统一写入 `list_raw`/`detail_raw`/`overview_raw` + 关键投影（价格/微信 openId/等级/直播状态等）。DDL `sql/xiaoe/23_xiaoe_ods_api_full.sql`。见 `integrations/小鹅通/README.md`（`README.md`）。
 - **小鹅通售后 ODS · 全量入库**：`after_sale.list` 发现 + `after_sale.detail` 写入 `xiaoe_tech_order_refund.detail_raw` 及用户/物流/备注等投影列。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/22_xiaoe_aftersale_detail_full.sql`。
 - **小鹅通订单 ODS · 全量入库**：`xiaoe_tech_order.detail_raw` 存 order.detail 整包；并投影推广员ID / resource_id·spu_id / 支付方式等；缺 `detail_raw` 会补拉。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/21_xiaoe_order_detail_full.sql`。
 - **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填**仅**该表 + 商品库名唯一命中（不采用「小鹅通订单总表」）；绑定区可「从小鹅通库选」。映射见 `integrations/小鹅通/README.md`（`README.md`）。
