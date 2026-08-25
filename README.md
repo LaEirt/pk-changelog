@@ -4,14 +4,25 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-24
+- 同步日：2026-08-25
 
 ---
 
 ## 更新动态
 
+### 2026-08-25
+
+- **抖音订单 ODS 断更修复**：`douyin_order` 字符串列 `varchar(255)` 扩为 `TEXT`，消除 realtime 拉数因超长字段整批回滚；小时 Celery 失败邮件改为去重摘要并对 DirectMail 拒信降级重试（此前告警被判垃圾邮件未送达）。见 `integrations/抖音/README.md`（`README.md`）。
+- **工作台 · 短信推广号池按平台分流**：同一商品仍只建一条短链；号池每行可标「接单平台」（空=不限），买家点加助教时按短信归因订单平台过滤后再分流。见 `sms_landing_shortlink_plan.md` §2.6 / SL-T-67。
+- **工作台 · 短信推广号库上百人**：助教号库与选入对话框分页；批量粘贴会对照号库（已有链接不重复建）；可按组挂入或复制其他短链号池。见 plan SL-T-68/69。
+
 ### 2026-08-24
 
+- **工作台 · 短信推广流量来源闸门**：短链购后发送可「不限 / 仅允许 / 排除」流量来源（对齐 `日报.全域订单.流量来源`）；编排跳过记 `skipped_traffic_source`；任务与结果展示并筛选流量来源。见 `sms_landing_shortlink_plan.md` §2.8.1 / SL-T-66。
+- **工作台 · 短信任务与结果性能**：首屏默认近 30 天；KPI 与列表并行加载；发送列表批量关联漏斗；应发未发短链内存索引，缓解超时与默认空表。
+- **工作台 · 短信推广运营台**：主模板切 NOTICE；发送页升级为「任务与结果」含应发未发 Tab、首屏 KPI 与单条/批量补发；SL-T-60～63。
+- **商城 · 站点图标**：破壳小鸡 LOGO 作 favicon（`/favicon.ico`、48px PNG）；供搜索摘要与浏览器标签展示。`/terms`、`/privacy` 同步修订（生效日 2026-08-24）；覆盖线上课程、第三方支付、课程助手、第三方共享与 Cookie 说明。
+- **商城 · 首页首屏性能**：Element Plus 改 `@element-plus/nuxt` 按需加载（主包约 1.34MB → 428KB）；轮播上传自动 WebP 压缩（≤100KB）；首图 `preload` + OSS 展示 WebP；SSR 仅阻塞 banners/精选，渠道与老师 `ClientOnly`；首页 `swr: 60` 降 TTFB。
 - **商城 · 退款关课状态补强**：`user_order` 新增 `refunded_at` / `revoke_status` / `revoke_at` / `revoke_detail`；关课走 `purchase.delete` 短延迟重试 + `permission.check` 确认，失败由 `store_course_revoke_retry` 补扫。见 benchmark §6.6 / TB-T-DLV-08…09（`storefront_toc_benchmark_plan.md`）。
 - **商城 · 收银台微信支付上线**：`/order/pay/:id` 双通道（Native 出码轮询 / H5 跳转）；WP-03/05/06/09 单测 green；运营台原路退按 `store_payment.channel` 分流。见 `storefront_wechat_pay_plan.md`。
 
