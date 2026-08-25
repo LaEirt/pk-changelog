@@ -12,7 +12,8 @@
 
 ### 2026-08-25
 
-- **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填改走该列 + 商品库；绑定区可「从小鹅通库选」，并压缩空白。
+- **小鹅通订单 ODS · 全量入库**：`xiaoe_tech_order.detail_raw` 存 order.detail 整包；并投影推广员ID / resource_id·spu_id / 支付方式等；缺 `detail_raw` 会补拉。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/21_xiaoe_order_detail_full.sql`。
+- **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填**仅**该表 + 商品库名唯一命中（不采用「小鹅通订单总表」）；绑定区可「从小鹅通库选」。映射见 `integrations/小鹅通/README.md`（`README.md`）。
 - **短信推广 · 指定商品ID ToC**：绑定区改为卡片（ADS 回查名称/平台/店铺）；W5 拆成「优先规则 / 其余订单走这里」兜底块，去掉晦涩 priority 数字心智。
 - **短信推广 · 指定商品ID 绑链**：绑定商品新增 `match_mode=goods_id`（可多 ID）；发信 `resolve` 优先按 ADS `商品id` 命中；投流专用品挂本链号池即可，不在 W5 写商品 ID 规则。见 `sms_landing_shortlink_plan.md`。
 - **短信推广 · W5 规则形态**：商品 ID 规则改为「专用品 → 助教池 A/B/C/D」（多选），工作台普通 when 行不再混排商品 ID；ADS 近窗回填微信/抖音/快手/小鹅通/小红书 ODS `商品id` 入 `日报.全域订单`。见 `sms_landing_shortlink_plan.md` §2.9。
