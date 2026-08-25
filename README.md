@@ -12,7 +12,7 @@
 
 ### 2026-08-25
 
-- **抖音订单 ODS 断更修复**：`douyin_order` 字符串列 `varchar(255)` 扩为 `TEXT`，消除 realtime 拉数因超长字段整批回滚；小时 Celery 失败邮件改为去重摘要并对 DirectMail 拒信降级重试（此前告警被判垃圾邮件未送达）。见 `integrations/抖音/README.md`（`README.md`）。
+- **抖音订单 ODS 断更修复**：仅将 `密文_买家手机号` 扩为 `TEXT`（encrypt 超 255 整批回滚）；小时 Celery 失败邮件改为去重摘要并对 DirectMail 拒信降级重试。见 `integrations/抖音/README.md`（`README.md`）。
 - **工作台 · 短信推广号池按平台分流**：同一商品仍只建一条短链；号池每行可标「接单平台」（空=不限），买家点加助教时按短信归因订单平台过滤后再分流。见 `sms_landing_shortlink_plan.md` §2.6 / SL-T-67。
 - **工作台 · 短信推广号库上百人**：助教号库与选入对话框分页；批量粘贴会对照号库（已有链接不重复建）；可按组挂入或复制其他短链号池。见 plan SL-T-68/69。
 
