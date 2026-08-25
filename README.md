@@ -12,6 +12,7 @@
 
 ### 2026-08-25
 
+- **小鹅通售后 ODS · 全量入库**：`after_sale.list` 发现 + `after_sale.detail` 写入 `xiaoe_tech_order_refund.detail_raw` 及用户/物流/备注等投影列。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/22_xiaoe_aftersale_detail_full.sql`。
 - **小鹅通订单 ODS · 全量入库**：`xiaoe_tech_order.detail_raw` 存 order.detail 整包；并投影推广员ID / resource_id·spu_id / 支付方式等；缺 `detail_raw` 会补拉。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/21_xiaoe_order_detail_full.sql`。
 - **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填**仅**该表 + 商品库名唯一命中（不采用「小鹅通订单总表」）；绑定区可「从小鹅通库选」。映射见 `integrations/小鹅通/README.md`（`README.md`）。
 - **短信推广 · 指定商品ID ToC**：绑定区改为卡片（ADS 回查名称/平台/店铺）；W5 拆成「优先规则 / 其余订单走这里」兜底块，去掉晦涩 priority 数字心智。
