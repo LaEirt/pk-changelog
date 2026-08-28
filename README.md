@@ -4,18 +4,42 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-25
+- 同步日：2026-08-28
 
 ---
 
 ## 更新动态
 
+### 2026-08-28
+
+- **短信发送 · 刷新回执**：修复阿里云明细常无 BizId 时误报「回执 BizId 与发送记录不匹配」、已送达仍显示「待回执」；QuerySendDetails 须带明文手机号。见 `sms_landing_shortlink_plan.md`。
+- **短信推广 · 指定商品 ID 未命中文案**：全域订单查无时主标题不再回落成裸 ID，检索表不展示假「命中」行；预览标明「未在全域订单出现」。
+- **集成 · 小红书商品 ID 改用 itemId**：`skuList[].itemId` → ODS/ADS `商品id`；`skuId` 单独成列；CPS `goodsId` 不再入 ADS。见 `integrations/小红书/README.md`（`README.md`）、`25_xhs_item_id_switch.sql`。
+- **集成 · 小红书 ODS 全量原文**：订单列表/CPS/售后三表补 `list_raw`/`detail_raw`（对齐小鹅拉数标准）；详情见 `integrations/小红书/README.md`（`README.md`）。
+- **商城运营台 · 外渠兑换权益**：`/store/admin/order-redeems` 可查个人中心兑换记录，联动小鹅通 API 做**确认 / 手动开通 / 取消**；见 `storefront_order_redeem_plan.md` §5.1b。
+
+### 2026-08-27
+
+- **商城 · 个人中心订单号开通课程**：外渠（抖音等）订单可在 `/user/profile` 用平台订单号兑换小鹅通开课（绑手机 → `create_task`）；兑换失败「联系客服」弹企微二维码；见 `storefront_order_redeem_plan.md`。
+- **商城 · 验证码登录用户改密**：个人中心支持手机/邮箱验证码设置新密码（无需旧密码）；保留旧密码改密路径。
+
+### 2026-08-26
+
+- **短信推广 · 文档对齐（plan §2.8.1 / §2.9.6 / API-SL-10a）**：配置跳过不落任务表；指定商品 ID 回查/检索（花名册 IP→ADS）；验收 SL-T-03a～03c。见 `sms_landing_shortlink_plan.md`。
+- **短信推广 · 商品 ID 搜索分词**：粘贴「简称 · 全称」卡片标题可拆词命中；已绑列表即生效，搜索区仅用于再添加。见 plan §2.9.6。
+- **短信推广 · 配置跳过不记任务**：平台/商品 ID/无短链/无手机号等闸门跳过只计编排统计，**不写**发送任务表；任务与结果默认也不展示存量「跳过」行。见 plan §2.8.1。
+- **短信推广 · 商品 ID 名称检索增强**：按名称/IP 检索时合并花名册与全域订单；已绑定且回查成功的商品参与本地匹配，并提示全域订单中的真实简称。见 plan §2.9.6。
+- **短信推广 · 指定商品 ID 点选**：配置台可用订单号/商品名称从 `日报.全域订单` 检索并选中对应 `商品id`（仍可粘贴 ID）；不再从小鹅通商品库选。
+- **短信推广 · 小鹅通商品 ID 回填修复**：`日报.全域订单状态更新` 近窗 cast 兼容 `支付时间='--'`；ADS 回填**仅** `xiaoe_tech_order.商品ID`。见 plan §2.9.4 · `integrations/小鹅通/README.md`（`README.md`）。
+- **商城 · 常军课程助手开闸**：百炼独立 KB 已建并同步 6 课（`cases_16`）；注册表 `chang_jun`→`live`；黄金问集 + CT-69。工作台须建自动规则（简称「厌学抑郁16大案例」）。见 `course_tutor_agent_plan.md` D10。
+
 ### 2026-08-25
 
+- **商城 · 常军课程助手 P2**：Raw 迁入「厌学抑郁16大案例」；注册表 `cases_16` + 人设；清洗 6 课双写 `knowledge/chang_jun/`；仍 `preparing`（待百炼独立 KB）。见 `course_tutor_agent_plan.md` D10。
 - **小鹅通其余 Beat 拉数 · 全量入库**：商品 list/detail、用户、推广员、直播 list/overview 统一写入 `list_raw`/`detail_raw`/`overview_raw` + 关键投影（价格/微信 openId/等级/直播状态等）。DDL `sql/xiaoe/23_xiaoe_ods_api_full.sql`。见 `integrations/小鹅通/README.md`（`README.md`）。
 - **小鹅通售后 ODS · 全量入库**：`after_sale.list` 发现 + `after_sale.detail` 写入 `xiaoe_tech_order_refund.detail_raw` 及用户/物流/备注等投影列。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/22_xiaoe_aftersale_detail_full.sql`。
 - **小鹅通订单 ODS · 全量入库**：`xiaoe_tech_order.detail_raw` 存 order.detail 整包；并投影推广员ID / resource_id·spu_id / 支付方式等；缺 `detail_raw` 会补拉。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/21_xiaoe_order_detail_full.sql`。
-- **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填**仅**该表 + 商品库名唯一命中（不采用「小鹅通订单总表」）；绑定区可「从小鹅通库选」。映射见 `integrations/小鹅通/README.md`（`README.md`）。
+- **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填**仅**该表（不 join 商品库、不采用「小鹅通订单总表」）；配置台「指定商品ID」仅粘贴 + 回查 `日报.全域订单`。映射见 `integrations/小鹅通/README.md`（`README.md`）。
 - **短信推广 · 指定商品ID ToC**：绑定区改为卡片（ADS 回查名称/平台/店铺）；W5 拆成「优先规则 / 其余订单走这里」兜底块，去掉晦涩 priority 数字心智。
 - **短信推广 · 指定商品ID 绑链**：绑定商品新增 `match_mode=goods_id`（可多 ID）；发信 `resolve` 优先按 ADS `商品id` 命中；投流专用品挂本链号池即可，不在 W5 写商品 ID 规则。见 `sms_landing_shortlink_plan.md`。
 - **短信推广 · W5 规则形态**：商品 ID 规则改为「专用品 → 助教池 A/B/C/D」（多选），工作台普通 when 行不再混排商品 ID；ADS 近窗回填微信/抖音/快手/小鹅通/小红书 ODS `商品id` 入 `日报.全域订单`。见 `sms_landing_shortlink_plan.md` §2.9。
@@ -27,7 +51,7 @@
 
 ### 2026-08-24
 
-- **工作台 · 短信推广流量来源闸门**：短链购后发送可「不限 / 仅允许 / 排除」流量来源（对齐 `日报.全域订单.流量来源`）；编排跳过记 `skipped_traffic_source`；任务与结果展示并筛选流量来源。见 `sms_landing_shortlink_plan.md` §2.8.1 / SL-T-66。
+- **工作台 · 短信推广流量来源闸门**：短链购后发送可「不限 / 仅允许 / 排除」流量来源（对齐 `日报.全域订单.流量来源`）；编排跳过 `skipped_traffic_source`（**2026-08-26 起配置类跳过不落发送任务表**）；任务与结果展示并筛选流量来源。见 `sms_landing_shortlink_plan.md` §2.8.1 / SL-T-66。
 - **工作台 · 短信任务与结果性能**：首屏默认近 30 天；KPI 与列表并行加载；发送列表批量关联漏斗；应发未发短链内存索引，缓解超时与默认空表。
 - **工作台 · 短信推广运营台**：主模板切 NOTICE；发送页升级为「任务与结果」含应发未发 Tab、首屏 KPI 与单条/批量补发；SL-T-60～63。
 - **商城 · 站点图标**：破壳小鸡 LOGO 作 favicon（`/favicon.ico`、48px PNG）；供搜索摘要与浏览器标签展示。`/terms`、`/privacy` 同步修订（生效日 2026-08-24）；覆盖线上课程、第三方支付、课程助手、第三方共享与 Cookie 说明。
