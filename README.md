@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析编辑器 P1-1 高频 Render 拆分**：KPI / 组合图 / 交叉表 / 明细表 / 查询控件摘要迁入独立 `BiRender*` 组件并由 registry 注册；其余图型仍走 `BiWidgetRender`。见 `bi_editor_architecture.md` · BI-46。
 - **工作台 · 经营分析计算字段（受限）**：数据集管理可添加计算度量/维度；表达式仅引用物理列，支持四则与 NULLIF/COALESCE/ABS/ROUND 等；查询引擎编译进 SELECT；DISTINCT 下拉对计算字段拒绝。见 `wb_bi/calc_expr.py` · FR-P3-01 · BI-45。
 - **工作台 · 经营分析字段架显示名**：架上优先显示数据表字段 label / encode.alias（不再裸 field_key）；双击芯片可改显示名。见 `biFieldAlias.ts`。
 - **工作台 · 经营分析钻取层级**：分析面板可配最多 6 级维度顺序；预览点维值下钻换维并压路径筛选，支持面包屑上钻。见 `biDrill.ts` · [钻取说明](https://help.aliyun.com/zh/quick-bi/user-guide/drilling-filter-interaction-and-hyperlink-1)。
