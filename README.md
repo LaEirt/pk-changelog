@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析编辑态组件菜单对齐预览**：更新看数后的 Host 与磁贴菜单支持导出 Excel/CSV/PNG、查看 SQL（admin）、查询耗时；与预览页一致。
 - **工作台 · 经营分析「新建查询控件」类目对齐 Quick BI**：拖字段快捷加条件、同表/全部/指定图关联、文本 DISTINCT 下拉（`field-values` API）、数值比较筛、记住查询条件。见 `bi_filter_bar.md` · §3.14 · [新建查询控件](https://help.aliyun.com/zh/quick-bi/user-guide/create-a-filter-bar)。
 - **工作台 · 经营分析对照官方差异补齐**：切换图型（缺要素提示）、双击改标题、顶栏替换数据集、格式刷、Ctrl+V 粘贴、页级自动刷新；差异清单见 `bi_official_gap.md`。
 - **工作台 · 经营分析编辑器三区布局对齐 Quick BI**：左数据集字段、中画布、右字段/样式/高级；顶栏工具栏「添加图表」抽屉 + 页面栅格（行高/间距）。见 `bi_dashboard_authoring.md` · §3.12.2 · [仪表板制作概述](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-dashboard-creation)。
