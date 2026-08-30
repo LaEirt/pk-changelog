@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析仪表板制作对齐 Quick BI 官方**：新建可选数据表；本页替换数据集并清洗脏字段；交叉表行/列/值与明细列数据区；默认收起组件库；编辑态查询条 + 打开自动更新。见 `workbench_bi_plan.md` §3.12 · [仪表板制作概述](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-dashboard-creation)。
 - **工作台 · 经营分析控制面迁入 schema `wb_bi`**：仪表板/ACL/策略/审计等表从 `public.web_siwei_wb_bi_*` 迁入独立 schema 短名；新增 `dataset` / `dataset_override`。见 `workbench_bi_plan.md` §3.11 / §5.2。
 - **工作台 · 数据源/数据集对齐 Quick BI 官方**：白名单 schema 浏览挂表、字段维/度量可编辑、列表按关键字/schema 筛选；连接仍由平台配置（无一线口令）。见 §3.11 · [创建并管理数据集](https://help.aliyun.com/zh/quick-bi/user-guide/create-and-manage-datasets)。
 
