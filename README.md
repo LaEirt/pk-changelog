@@ -4,7 +4,7 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-08-30
+- 同步日：2026-08-31
 
 ---
 
@@ -12,6 +12,7 @@
 
 ### 2026-08-30
 
+- **工作台 · 经营分析按 Quick BI 教程补强现有模块**：联动支持跨字段叠加与「上钻」；预览合并本图私有筛选；查询控件认日期字段；图标签千分位/万；刷新失败保上一帧；预览/编辑可收藏。见 `workbench_bi_plan.md` §3.10 · [交互式分析](https://help.aliyun.com/zh/quick-bi/user-guide/interactive-analysis-overview)。
 - **工作台 · 经营分析对标 Quick BI 六件套**：制作台展示产品地图；新增薄版「探索分析」（选表拖字段即时出图/导出）；即席/电子表格/数据大屏仍规划中。见 `workbench_bi_plan.md` §3.9 · [官方概述](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-data-analysis)。
 - **工作台 · 经营分析查看态/编辑态分离 + Tab 控件 + 全宽画布**：预览页标「查看态」、有权限才显示「编辑仪表板」；编辑器可加 Quick BI 式 Tab 控件（增删改标签、移入/移出图）；画布取消 1400px 限宽，新建图默认铺满行宽。见 `workbench_bi_plan.md` E12–E14。
 - **工作台 · 经营分析参考图缺口 P0–P3**：图内标签/图例/饼变体/面积堆积；直方图、瀑布、玫瑰、子弹、气泡、旭日、翻牌、水波；KPI 迷你走势与交叉表色块模式。P4（Quick BI 切流/地理/桑基等）仍 Deferred。见 `workbench_bi_plan.md` §4.3.1。
