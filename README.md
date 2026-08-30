@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析字段架显示名**：架上优先显示数据表字段 label / encode.alias（不再裸 field_key）；双击芯片可改显示名。见 `biFieldAlias.ts`。
 - **工作台 · 经营分析钻取层级**：分析面板可配最多 6 级维度顺序；预览点维值下钻换维并压路径筛选，支持面包屑上钻。见 `biDrill.ts` · [钻取说明](https://help.aliyun.com/zh/quick-bi/user-guide/drilling-filter-interaction-and-hyperlink-1)。
 - **工作台 · 经营分析编辑态组件菜单对齐预览**：更新看数后的 Host 与磁贴菜单支持导出 Excel/CSV/PNG、查看 SQL（admin）、查询耗时；与预览页一致。
 - **工作台 · 经营分析「新建查询控件」类目对齐 Quick BI**：拖字段快捷加条件、同表/全部/指定图关联、文本 DISTINCT 下拉（`field-values` API）、数值比较筛、记住查询条件。见 `bi_filter_bar.md` · §3.14 · [新建查询控件](https://help.aliyun.com/zh/quick-bi/user-guide/create-a-filter-bar)。
