@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析编辑器三区布局对齐 Quick BI**：左数据集字段、中画布、右字段/样式/高级；顶栏工具栏「添加图表」抽屉 + 页面栅格（行高/间距）。见 `bi_dashboard_authoring.md` · §3.12.2 · [仪表板制作概述](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-dashboard-creation)。
 - **工作台 · 经营分析编辑器结构止血**：落地 `registry.ts`（编辑/预览/探索统一解析组件）；右侧设置拆为 Fields/Style/Analysis 三面板。见 `bi_editor_architecture.md` · `next_phases_p0_p3.md`。
 - **工作台 · 经营分析组件库图标升级**：采用 IBM Carbon 统一蓝 SVG（柱/线/饼/雷达等 31 枚）；上传 OSS `products/bi/chart-icons/` 公开引用，本地 `public/bi/chart-icons/` 兜底。脚本 `upload_bi_chart_icons.py`。
 - **工作台 · 经营分析查询控件对齐 Quick BI**：预览顶栏支持日期 + 文本维筛（多选可手输）；编辑器可为查询控件添加文本槽；画布磁贴展示条件摘要；URL `qf_*` 可分享。见 `bi_filter_bar.md` · §3.14 · [查询控件概览](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-the-filter-bar-widget)。
