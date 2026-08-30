@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析查询控件对齐 Quick BI**：预览顶栏支持日期 + 文本维筛（多选可手输）；编辑器可为查询控件添加文本槽；画布磁贴展示条件摘要；URL `qf_*` 可分享。见 `bi_filter_bar.md` · §3.14 · [查询控件概览](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-the-filter-bar-widget)。
 - **工作台 · 经营分析组件库对齐 Quick BI 可视化图表**：按分析意图（趋势/比较/分布/关系/时序）筛选 + 搜索；悬停展示适用场景与维/度量要素；散点/漏斗等归入「散点/关系」。文档拆为 `bi/`（`README.md`） 分册 · §3.13 · [可视化图表概述](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-visualized-charts)。
 - **工作台 · 经营分析仪表板制作对齐 Quick BI 官方**：新建可选数据表；本页替换数据集并清洗脏字段；交叉表行/列/值与明细列数据区；默认收起组件库；编辑态查询条 + 打开自动更新。见 `workbench_bi_plan.md` §3.12 · [仪表板制作概述](https://help.aliyun.com/zh/quick-bi/user-guide/overview-of-dashboard-creation)。
 - **工作台 · 经营分析控制面迁入 schema `wb_bi`**：仪表板/ACL/策略/审计等表从 `public.web_siwei_wb_bi_*` 迁入独立 schema 短名；新增 `dataset` / `dataset_override`。见 `workbench_bi_plan.md` §3.11 / §5.2。
