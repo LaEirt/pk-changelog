@@ -10,6 +10,11 @@
 
 ## 更新动态
 
+### 2026-08-31
+
+- **工作台 · 经营分析控制面迁入 schema `wb_bi`**：仪表板/ACL/策略/审计等表从 `public.web_siwei_wb_bi_*` 迁入独立 schema 短名；新增 `dataset` / `dataset_override`。见 `workbench_bi_plan.md` §3.11 / §5.2。
+- **工作台 · 数据源/数据集对齐 Quick BI 官方**：白名单 schema 浏览挂表、字段维/度量可编辑、列表按关键字/schema 筛选；连接仍由平台配置（无一线口令）。见 §3.11 · [创建并管理数据集](https://help.aliyun.com/zh/quick-bi/user-guide/create-and-manage-datasets)。
+
 ### 2026-08-30
 
 - **工作台 · 经营分析按 Quick BI 教程补强现有模块**：联动支持跨字段叠加与「上钻」；预览合并本图私有筛选；查询控件认日期字段；图标签千分位/万；刷新失败保上一帧；预览/编辑可收藏。见 `workbench_bi_plan.md` §3.10 · [交互式分析](https://help.aliyun.com/zh/quick-bi/user-guide/interactive-analysis-overview)。
