@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析计算字段（受限）**：数据集管理可添加计算度量/维度；表达式仅引用物理列，支持四则与 NULLIF/COALESCE/ABS/ROUND 等；查询引擎编译进 SELECT；DISTINCT 下拉对计算字段拒绝。见 `wb_bi/calc_expr.py` · FR-P3-01 · BI-45。
 - **工作台 · 经营分析字段架显示名**：架上优先显示数据表字段 label / encode.alias（不再裸 field_key）；双击芯片可改显示名。见 `biFieldAlias.ts`。
 - **工作台 · 经营分析钻取层级**：分析面板可配最多 6 级维度顺序；预览点维值下钻换维并压路径筛选，支持面包屑上钻。见 `biDrill.ts` · [钻取说明](https://help.aliyun.com/zh/quick-bi/user-guide/drilling-filter-interaction-and-hyperlink-1)。
 - **工作台 · 经营分析编辑态组件菜单对齐预览**：更新看数后的 Host 与磁贴菜单支持导出 Excel/CSV/PNG、查看 SQL（admin）、查询耗时；与预览页一致。
