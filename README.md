@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析面板搜索深化**：右侧配置搜索升级为配置索引（字段/样式/高级多区块）；命中后跳 Tab 并滚动高亮对应配置区，支持 Enter 选首条。见 `biInspectorSearch.ts` · BI-47。
 - **工作台 · 经营分析编辑器 P1-1 高频 Render 拆分**：KPI / 组合图 / 交叉表 / 明细表 / 查询控件摘要迁入独立 `BiRender*` 组件并由 registry 注册；其余图型仍走 `BiWidgetRender`。见 `bi_editor_architecture.md` · BI-46。
 - **工作台 · 经营分析计算字段（受限）**：数据集管理可添加计算度量/维度；表达式仅引用物理列，支持四则与 NULLIF/COALESCE/ABS/ROUND 等；查询引擎编译进 SELECT；DISTINCT 下拉对计算字段拒绝。见 `wb_bi/calc_expr.py` · FR-P3-01 · BI-45。
 - **工作台 · 经营分析字段架显示名**：架上优先显示数据表字段 label / encode.alias（不再裸 field_key）；双击芯片可改显示名。见 `biFieldAlias.ts`。
