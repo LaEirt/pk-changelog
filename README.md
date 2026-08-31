@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 咨询交付手机登记**：窄屏搜条 + FilterSheet、抽屉全宽 sticky 提交、主表缩列与行内「登记」；**不做**独立移动页（见 `workbench_mobile_adapt_plan`（`workbench_mobile_adapt_plan.md`） §7.5 / Q7）。
 - **工作台 · 移动适配 P0–P2**：壳层 Drawer；订单查找移动筛选 Sheet + chips；账号/预约/L2 列表窄屏叠放；比对与短信编辑桌面优先提示。见 `workbench_mobile_adapt_plan.md`（P3 底 Tab/卡片化按决议不做；P4 待人工 UAT）。
 - **工作台 · 移动壳 P0**：≤768px 侧栏改为汉堡 + `WbMobileNavDrawer`（菜单与桌面同构）；`viewport-fit=cover` + `workbench-mobile.css`；见 `workbench_mobile_adapt_plan.md`。
 - **工作台 · 经营分析窄屏适配（BI-54）**：制作/探索/Admin 窄屏展示 `WbDesktopOnlyHint`；看板预览 768px 单列 + 骨架首载；`useWorkbenchShell` 断点 768。见 `bi_mobile.md`。
