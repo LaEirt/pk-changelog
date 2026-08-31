@@ -12,6 +12,8 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析仪表专项 P2 续**：查看数据「格式化/原始」；分析区 TopN（`encode.top_n`）；标题旁状态标（钻/跳/链/独/筛）；重做+自动保存开关已验收登记。见 `bi_dashboard_improvement.md`。
+- **工作台 · 经营分析仪表专项（DASH-I P0～P3）**：换表对话框列出本页已用表并同名同型保留字段；数字百分比/前后缀、去重计数、排序；标题链接/备注尾注/卡片样式；预览「手机预览」框与视图锁定；P4 切流清单见 `bi_p4_cutover.md`。
 - **工作台 · 咨询交付手机登记**：窄屏搜条 + FilterSheet、抽屉全宽 sticky 提交、主表缩列与行内「登记」；**不做**独立移动页（见 `workbench_mobile_adapt_plan`（`workbench_mobile_adapt_plan.md`） §7.5 / Q7）。
 - **工作台 · 移动适配 P0–P2**：壳层 Drawer；订单查找移动筛选 Sheet + chips；账号/预约/L2 列表窄屏叠放；比对与短信编辑桌面优先提示。见 `workbench_mobile_adapt_plan.md`（P3 底 Tab/卡片化按决议不做；P4 待人工 UAT）。
 - **工作台 · 移动壳 P0**：≤768px 侧栏改为汉堡 + `WbMobileNavDrawer`（菜单与桌面同构）；`viewport-fit=cover` + `workbench-mobile.css`；见 `workbench_mobile_adapt_plan.md`。
