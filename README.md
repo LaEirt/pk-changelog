@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **短信推广 · 加人事后对账**：工作台「任务与结果」可「对账加人」；调企微获客客户列表（官方 97395）按 `customer_channel` 回补漏记加人；命令 `reconcile_sms_landing_wecom_adds`。见 `sms_landing_shortlink_plan.md`。
 - **工作台 · 制作台可配版式（DASH-I-33）**：样式面板可改文本正文/横幅、去边框、KPI 列数与区头说明、按月双指标卡；用户可不靠 Agent 自配全IP类布局。见 `bi_dashboard_improvement.md`。
 - **工作台 · 全IP大盘 Sheet01 版式对齐**：总览灰底横幅、KPI 双列实色块、近四月数量/金额小卡、月销顶齐、底全宽热力交叉表；种子草稿自动重排。见 `workbench_bi_plan.md` §2.2。
 - **工作台 · 全IP数据大盘种子复刻**：按线上四屏升级 `dash_ip_board`——总览 KPI+月销双轴、多维交叉双/三维度 Tab、排行六卡（简称）、订单明细+拆解树薄替；旧草稿自动补丁。见 `workbench_bi_plan.md` §2.2。
