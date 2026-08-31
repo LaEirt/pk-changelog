@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 移动壳 P0**：≤768px 侧栏改为汉堡 + `WbMobileNavDrawer`（菜单与桌面同构）；`viewport-fit=cover` + `workbench-mobile.css`；见 `workbench_mobile_adapt_plan.md`。
 - **工作台 · 经营分析窄屏适配（BI-54）**：制作/探索/Admin 窄屏展示 `WbDesktopOnlyHint`；看板预览 768px 单列 + 骨架首载；`useWorkbenchShell` 断点 768。见 `bi_mobile.md`。
 - **工作台 · 经营分析 ToC Soft UI**：子域 token 对齐 `--wb-*`；门户 Soft hero + 首载骨架 + 首访引导；制作台/探索/审计用 `WbPageHeader` + 骨架替代整页遮罩。见 `bi_toc_ux.md` · BI-53。
 - **工作台 · 经营分析异步大导出（P3-2）**：明细/交叉表菜单与探索页可提交 `export_tasks`（kind=`bi_detail_export`）；明细分页拉取至 10 万行；完成后在个人中心「导出任务」下载。见 FR-P2-03 · BI-52 · `next_phases_p0_p3.md`。
