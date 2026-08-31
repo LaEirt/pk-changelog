@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析预览 Runtime 抽离（P1-2）**：查询调度/页级筛/级联 DISTINCT 迁入 `useBiDashboardRuntime` + `biDashboardRuntime`；预览页瘦身，编辑态共用纯函数。见 BI-49 · `next_phases_p0_p3.md`。
 - **工作台 · 经营分析查询控件级联（薄）**：文本条件可指定父槽；预览子下拉 DISTINCT 按父已选值收窄，父变更清空子选项；树形/条件组仍未做。见 `bi_filter_bar.md` · FR-P2-16 · BI-48。
 - **工作台 · 经营分析面板搜索深化**：右侧配置搜索升级为配置索引（字段/样式/高级多区块）；命中后跳 Tab 并滚动高亮对应配置区，支持 Enter 选首条。见 `biInspectorSearch.ts` · BI-47。
 - **工作台 · 经营分析编辑器 P1-1 高频 Render 拆分**：KPI / 组合图 / 交叉表 / 明细表 / 查询控件摘要迁入独立 `BiRender*` 组件并由 registry 注册；其余图型仍走 `BiWidgetRender`。见 `bi_editor_architecture.md` · BI-46。
