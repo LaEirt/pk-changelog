@@ -12,6 +12,8 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析权限对齐 Quick BI 空间角色**：用户管理预设改为空间查看者 / 分析师 / 开发者 / 管理员四级；集中授权页展示角色导引并可一键填入角色码。见 `bi_permissions.md` · [官方角色权限](https://help.aliyun.com/zh/quick-bi/user-guide/role-permissions) · BI-51。
+- **工作台 · 经营分析服务端图表库（P3-1）**：`wb_bi.chart` 可存入/列表/删除；编辑器「存入图表库」「图表库→插入本板」；插入为快照（改库不回写已落板）。见 FR-P2-04 · BI-50 · migration `0101`。
 - **工作台 · 经营分析预览 Runtime 抽离（P1-2）**：查询调度/页级筛/级联 DISTINCT 迁入 `useBiDashboardRuntime` + `biDashboardRuntime`；预览页瘦身，编辑态共用纯函数。见 BI-49 · `next_phases_p0_p3.md`。
 - **工作台 · 经营分析查询控件级联（薄）**：文本条件可指定父槽；预览子下拉 DISTINCT 按父已选值收窄，父变更清空子选项；树形/条件组仍未做。见 `bi_filter_bar.md` · FR-P2-16 · BI-48。
 - **工作台 · 经营分析面板搜索深化**：右侧配置搜索升级为配置索引（字段/样式/高级多区块）；命中后跳 Tab 并滚动高亮对应配置区，支持 Enter 选首条。见 `biInspectorSearch.ts` · BI-47。
