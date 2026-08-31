@@ -12,6 +12,7 @@
 
 ### 2026-08-31
 
+- **工作台 · 经营分析异步大导出（P3-2）**：明细/交叉表菜单与探索页可提交 `export_tasks`（kind=`bi_detail_export`）；明细分页拉取至 10 万行；完成后在个人中心「导出任务」下载。见 FR-P2-03 · BI-52 · `next_phases_p0_p3.md`。
 - **工作台 · 经营分析授权页 Soft UI**：集中授权改为单栏壳层（蓝主色 hero、四级角色卡选中态、表单栅格、权限色标与空态）；修掉误用制作台双栏栅格导致的挤版。见 `/bi/admin/acl` · `bi_permissions.md`。
 - **工作台 · 经营分析权限对齐 Quick BI 空间角色**：用户管理预设改为空间查看者 / 分析师 / 开发者 / 管理员四级；集中授权页展示角色导引并可一键填入角色码。见 `bi_permissions.md` · [官方角色权限](https://help.aliyun.com/zh/quick-bi/user-guide/role-permissions) · BI-51。
 - **工作台 · 经营分析服务端图表库（P3-1）**：`wb_bi.chart` 可存入/列表/删除；编辑器「存入图表库」「图表库→插入本板」；插入为快照（改库不回写已落板）。见 FR-P2-04 · BI-50 · migration `0101`。
