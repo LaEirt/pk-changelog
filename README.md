@@ -12,6 +12,8 @@
 
 ### 2026-09-02
 
+- **歧义订单 · 漏同步补跑 + 批量同意 stampede 修复**：补跑 26 单已同意未进 ADS 的秒级同步；写锁占用落 `skipped` 日志并 Celery 重试；批量同意改为串行。见 `order_claim_realtime_sync_plan.md` T-SYNC-05c。
+- **歧义订单 · 原归属锁定 / 管理员代审 / 离职展示**：提交时原归属人只读（须等于全域订单同事）；`wb_admin` 可代同意/驳回并可改待确认单归属与备注；原归属账号停用或邮箱作废时列表 `展示状态=联系管理员`（库内仍为待原归属确认）。见 `ambiguous_order_plan.md` T18–T20。
 - **工作台 · 制作台 Soft 样式未生效修复（BI-TOC-08）**：`bi-editor.css` 改为非 scoped，字段/样式/分析子组件才能吃到 Soft TOC 与字段架样式。见 `bi_toc_ux.md`。
 - **工作台 · 经营分析右栏 Soft 深度（BI-TOC-07）**：字段/样式/分析三面统一分段轨、TOC 毛玻璃、折叠卡片、字段架与底部「更新看数」层级；空态更清晰。见 `bi_toc_ux.md`。
 - **订单认领 · 企微填报同步简称/IP**：企微页签改商品名称后 ADS 同批写 `简称`/`ip`（同源 `get_sales_report_categories`）。见 `wecom_unclaimed_decouple_plan.md` WU-11。
