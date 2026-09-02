@@ -12,6 +12,7 @@
 
 ### 2026-09-02
 
+- **工作台 · 制作台 Soft 样式未生效修复（BI-TOC-08）**：`bi-editor.css` 改为非 scoped，字段/样式/分析子组件才能吃到 Soft TOC 与字段架样式。见 `bi_toc_ux.md`。
 - **工作台 · 经营分析右栏 Soft 深度（BI-TOC-07）**：字段/样式/分析三面统一分段轨、TOC 毛玻璃、折叠卡片、字段架与底部「更新看数」层级；空态更清晰。见 `bi_toc_ux.md`。
 - **订单认领 · 企微填报同步简称/IP**：企微页签改商品名称后 ADS 同批写 `简称`/`ip`（同源 `get_sales_report_categories`）。见 `wecom_unclaimed_decouple_plan.md` WU-11。
 - **歧义订单 · 归属人树下拉串台**：新建/行内「新归属人」误显示「导出全部」CSV/xlsx 选项；改为 `WbSsrSafeTreeSelect` 且每字段独立 `popper-class`，导出菜单亦隔离浮层。
