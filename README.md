@@ -4,16 +4,28 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-01
+- 同步日：2026-09-02
 
 ---
 
 ## 更新动态
 
+### 2026-09-02
+
+- **订单认领 · 企微填报同步简称/IP**：企微页签改商品名称后 ADS 同批写 `简称`/`ip`（同源 `get_sales_report_categories`）；存量回补 `scripts/db/backfill_wecom_ads_product_derived.py`。见 `wecom_unclaimed_decouple_plan.md` WU-11。
+- **歧义订单 · 归属人树下拉串台**：新建/行内「新归属人」误显示「导出全部」CSV/xlsx 选项；改为 `WbSsrSafeTreeSelect` 且每字段独立 `popper-class`，导出菜单亦隔离浮层。
+- **订单认领 · 企微页签列筛选**：筛选区新增带货人 / 同事 / 商品名称 / 用户昵称 / 买家手机号 / 直播标题（子串）；导出全部沿用同条件。见 `wecom_unclaimed_decouple_plan.md` WU-10。
+
 ### 2026-09-01
 
+- **短信推广 · 落地短链列显隐**：列表「列设置」可自定义隐藏列，按账号记忆（`sms_landing_links`）；短码/操作固定。见 `sms_landing_shortlink_plan.md` SL-T-87。
+- **短信推广 · 列表复制短链**：落地短链操作新增「复制」预填新建页（改商品/助教后创建）；原「复制」改名「复制链接」。见 `sms_landing_shortlink_plan.md` SL-T-86。
+- **咨询交付 · 任意列显隐（按账号记忆）**：主表「列设置」可勾选任意动态列；偏好落库 `web_siwei_table_column_pref`（`user_id` + `table_key`）；默认仍隐藏原扩展列。见 `consult_delivery_plan.md` §3.5 · COL-01～05。
+- **咨询交付 · 用户昵称筛选**：主表查询栏/窄屏筛选可按「用户昵称」模糊搜索；非空时同样返回已关闭订单。见 `consult_delivery_plan.md` §6.1 · NICK-01～03。
+- **咨询交付桌面筛栏**：修复「更多筛选」整行拉满——移动端 `WbFilterSheet` 仅窄屏挂载，桌面高级筛恢复紧凑折行。见 `workbench_mobile_adapt_plan.md` §7.5。
 - **工作台移动端筛栏密度**：咨询交付/预约/订单查找即时搜条改为订单号+手机号双列；分销账号等筛栏改为半宽折行，避免一框占满整行。见 `workbench_mobile_adapt_plan.md` Q9 · MOB-12。
-- **短信推广 · 加人方案 A 开闸清单**：指令回调为主路径；文档 §11.1 列出密钥 / nginx / 企微后台人工步骤；提供 nginx 片段与 ECS patch、自检命令。见 `sms_landing_shortlink_plan.md`。
+- **短信推广 · 加人方案 A 已落地**：现网 `api_qiwei_push` 入口分流获客 `friend_request` → 写 `sms` 域「加人」；不改企微后台 URL；SL-T-84/85。见 `sms_landing_shortlink_plan.md` §11.1。
+- **短信推广 · 加人方案 A 改定稿**：主路径复用现网企微回调 `…/qiwei/api_qiwei_push` + `WECOME_*`，在入口分流 `friend_request`（禁止改企微后台 URL）；97395 对账为辅。见 `sms_landing_shortlink_plan.md` §11.1。
 - **短信推广 · 新建默认补发与落地文案**：未打开补发默认等 3 分钟、最多再发 2 次；顶提示「请务必添加助教激活课程」；主按钮「点击立即激活课程」（存量不回写）。见 `sms_landing_shortlink_plan.md`。
 - **短信推广 · 短链列表搜索与排序**：落地短链列表可按匹配/分流/购后发送等筛选，综合搜索含品牌/备注/助教；表头点列服务端排序。见 `sms_landing_shortlink_plan.md` API-SL-01 / SL-T-64b。
 - **短信推广 · 新建默认开自动发与未打开补发**：新建落地短链时「购后自动发推广短信」「未打开补发」默认开启（存量短链不回写）。见 `sms_landing_shortlink_plan.md` §2.8.1 / §2.8.2。
