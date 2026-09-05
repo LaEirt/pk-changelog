@@ -4,11 +4,23 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-02
+- 同步日：2026-09-05
 
 ---
 
 ## 更新动态
+
+### 2026-09-05
+
+- **工作台登录 · 企微角标晚到不再冲掉已输入账号密码**：登录页角标首屏即展示，邮箱表单保活并回填已输入内容。见 `wework_oauth_login_plan.md` WW-FE-09。
+
+### 2026-09-04
+
+- **抖店云 · 入云解密运行时**：方案 B 已在抖店云 ECS 解出明文回写 `douyin_order_cloud`（成长室/心理店；破壳有范当日查看次数用尽）。见 `douyin_cloud_decrypt_plan.md`。
+
+### 2026-09-03
+
+- **工作台 · 企微离职/禁用自动停用账号**：通讯录 `change_contact`（`delete_user` / 状态退出或禁用）与日级 sweep 将绑定 `auth_user` 置 `is_active=False`（不自动复职；无绑定时邮箱唯一命中兜底）。见 `wecom_leave_auto_suspend_plan.md`。
 
 ### 2026-09-02
 
