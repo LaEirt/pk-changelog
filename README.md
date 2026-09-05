@@ -12,6 +12,7 @@
 
 ### 2026-09-05
 
+- **工作台 · 全IP预览 Soft 表头（DASH-I-35）**：排行/明细蓝条章节标题；明细与交叉表蓝表头；热力色块圆角；排行前三勋章条；页签加粗下划线。见 `bi_dashboard_improvement.md`。
 - **工作台 · 全IP大盘对照加深（DASH-I-34）**：月销组合图默认虚线金额线与仅折线标数；KPI 按次级分组定色；平台数量堆积可横排；种子草稿自动补丁。见 `bi_dashboard_improvement.md`。
 - **认领实时同步 · 商品名同批重算简称/ip**：`order_claim_sync_order_nos` 在有产品名称时写 ADS `简称`/`ip`；回填认领侧卡死简称存量。见 `order_claim_realtime_sync_plan.md` T-SYNC-06b。
 - **企微补商品 · 简称/ip 漏写修复与存量回填**：`wecom_product_fill` 窄更新 ADS 时正确重算简称/ip（修参数绑定）；回填 19 单企微 ADS 卡在「其他分组」的行。见 `wecom_unclaimed_decouple_plan.md` WU-12。
