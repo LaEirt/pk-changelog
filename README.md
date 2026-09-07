@@ -4,14 +4,26 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-05
+- 同步日：2026-09-07
 
 ---
 
 ## 更新动态
 
+### 2026-09-07
+
+- **提醒文案 · 结算纯人工**：结算文件就绪/同步/财务定稿的标题与正文不再自动拼结算月；预览与实际发送与编辑框一致。见 `workbench_notify_hub_plan.md` NH-14。
+- **短信推广 · 未打开补发误发修复**：短信正文仅短码、无法带 `?sl=` 时，首发后同短链的落地页打开也算「已打开」，避免再补发 2～3 次。见 `sms_landing_shortlink_plan.md` SL-T-59b。
+- **企微推送 · `evt_unknown` 积压抽表**：客户联系/客户群/标签、获客助手、应用关注/取消关注落入专用 `evt_*`（`企业微信_push`）；提供历史回填脚本。见 `wecom_bank_schema_governance_plan.md` WG-02f。
+
+### 2026-09-07
+
+- **课程讲解 · P4 流式对话**：`Accept: text/event-stream` 时边出字；课内回答带「来自哪一档课」标签；检索/生成模型名写在代码里。未购课仍先拒、不会先流出再收回。见 `course_tutor_agent_plan.md` CT-72～74。
+- **工作台助手 · P3**：同样支持流式；模型胡编的未知按钮不再出现。见 `workbench_guide_agent_plan.md` §0.5。
+
 ### 2026-09-05
 
+- **智能体 · 吸收 OpenMAIC 模式（规格，未改代码）**：课程助手 P4 定为 SSE 流式、`cite_scope` 动作、分阶段模型；原始稿解析优先 AliDocMind。工作台助手 P3 同构 SSE + 未知 Action 丢弃（已完结 plan 未开闸）。不嵌课堂产品、不换百炼。见 `course_tutor_agent_plan.md` D11 · `workbench_guide_agent_plan.md` §0.5。
 - **工作台 · 全IP预览 Soft 表头（DASH-I-35）**：排行/明细蓝条章节标题；明细与交叉表蓝表头；热力色块圆角；排行前三勋章条；页签加粗下划线。见 `bi_dashboard_improvement.md`。
 - **工作台 · 全IP大盘对照加深（DASH-I-34）**：月销组合图默认虚线金额线与仅折线标数；KPI 按次级分组定色；平台数量堆积可横排；种子草稿自动补丁。见 `bi_dashboard_improvement.md`。
 - **认领实时同步 · 商品名同批重算简称/ip**：`order_claim_sync_order_nos` 在有产品名称时写 ADS `简称`/`ip`；回填认领侧卡死简称存量。见 `order_claim_realtime_sync_plan.md` T-SYNC-06b。
