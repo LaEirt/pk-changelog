@@ -4,11 +4,23 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-07
+- 同步日：2026-09-09
 
 ---
 
 ## 更新动态
+
+### 2026-09-09
+
+- **分销账号 · ID 匹配续推**：过期同昵称可安全续期（`--nick`）；ADS 写路径 `LIKE` 字面 `%` 已转义，避免绑定保存后同步崩溃。近 90 天同事纠偏已 `--execute`。缺绑定（陈聪系等）仍需人工，不猜同事。见 `account_stable_id_match_plan.md` SID-08 / SID-14。
+
+### 2026-09-08
+
+- **分销账号 · 过期昵称关窗**：同平台账号 ID 下，按订单别名「最近见到」定现行名，旧昵称长期行标「旧账号名」并关结束日（18 行）。更名后暂无主因仍是缺绑定/过期，不是「ID 已有现行绑却进认领」。见 `account_stable_id_match_plan.md` SID-16。
+- **分销账号 · 官方 ID 补全**：身份维观测加上小红书订单 `kolId`；视频号空 `finder_id` 只回退 `sph*` 账户 ID（`wx*` 带货达人仍留给 W3）。全平台空 ID 绑定可拆成各渠官方 ID 行，不猜同事。见 `account_stable_id_match_plan.md` SID-00f / SID-15。
+- **分销账号 · 平台账号 ID**：工作台账号一览增加「平台账号 ID」列（空为「待补全」）；新增/编辑可「从订单建议」。ID 不变则改名不断链。后端已接列表/写入/建议与更名期窗、ADS 窄同步；存量 align CLI 近 90 天已 `--execute`。见 `account_stable_id_match_plan.md` API-AS-01～04 · SID-08/11。
+- **全域订单 Beat 已恢复**：W1.3 把抖音 `达人ID` 写进底稿时未加双引号，PostgreSQL 找不到列，`siwei_all_order` 从 17:52 起连续失败。已改为 `btrim("达人ID")` 并重部署函数。见 `account_stable_id_match_plan.md` T8。
+- **分销账号 · 直播账号id 不是直播间**：视频号槽位是达人 `sph*`；小鹅通仍是直播间 `l_*`（场次汇总要用）。抖音空槽先补 `达人ID` 再匹配同事。见 `account_stable_id_match_plan.md` T12。
 
 ### 2026-09-07
 
