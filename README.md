@@ -12,6 +12,7 @@
 
 ### 2026-09-09
 
+- **认领/歧义 · ADS 归属防漂移**：`日报.全域订单` Beat 汇总层优先覆盖「已同意歧义 / 认领汇总」同事（与实时同步同序），避免 60s UPSERT 把平台 JOIN 结果冲掉运营归属。部署：`deploy_quanyu_order_fn.py`。见 `order_claim_realtime_sync_plan.md` §4.3.1。
 - **数仓 · 跨渠维落点 P0–P2 已切流**：`同事` / 分组 / 曾用名 / 身份 / 别名物理表进入 schema `分销账号`；`抖音订单.*` 为兼容 VIEW，工作台与 `日报.全域订单` FQTN 本波不改。已清 `_diag_*`、空壳 `processed_msg` 与死函数。见 `dw_schema_table_placement_plan.md`。
 - **分销账号 · ID 匹配续推**：过期同昵称可安全续期（`--nick`）；ADS 写路径 `LIKE` 字面 `%` 已转义，避免绑定保存后同步崩溃。近 90 天同事纠偏已 `--execute`。缺绑定（陈聪系等）仍需人工，不猜同事。见 `account_stable_id_match_plan.md` SID-08 / SID-14。
 
