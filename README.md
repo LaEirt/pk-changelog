@@ -12,8 +12,9 @@
 
 ### 2026-09-09
 
+- **数仓 · 表落点 P3–P6 已现网**：小鹅 DWS→`日报`、银行 `支付宝*`→`临时查询`、停写 `直播订单划分`；**P6 已去掉** P2/P3/P4 兼容 VIEW（`业务表.同事表` / seed / Beat 函数改指物理 schema）。见 `dw_schema_table_placement_plan.md` PL-11～PL-14。
 - **认领/歧义 · ADS 归属防漂移**：`日报.全域订单` Beat 汇总层优先覆盖「已同意歧义 / 认领汇总」同事（与实时同步同序），避免 60s UPSERT 冲掉运营归属。部署：`deploy_quanyu_order_fn.py`。见 `order_claim_realtime_sync_plan.md` §4.3.1。
-- **数仓 · 跨渠维落点 P0–P2 已切流**：`同事` / 分组 / 曾用名 / 身份 / 别名物理表进入 schema `分销账号`；`抖音订单.*` 为兼容 VIEW，工作台与 `日报.全域订单` FQTN 本波不改。已清 `_diag_*`、空壳 `processed_msg` 与死函数。见 `dw_schema_table_placement_plan.md`。
+- **数仓 · 跨渠维落点 P0–P2 已切流**：`同事` / 分组 / 曾用名 / 身份 / 别名物理表在 schema `分销账号`；热路径 FQTN 指向 `分销账号.*`（P6 后无 `抖音订单.*` 兼容 VIEW）。见 `dw_schema_table_placement_plan.md`。
 - **分销账号 · ID 匹配续推**：过期同昵称可安全续期（`--nick`）；ADS 写路径 `LIKE` 字面 `%` 已转义，避免绑定保存后同步崩溃。近 90 天同事纠偏已 `--execute`。缺绑定（陈聪系等）仍需人工，不猜同事。见 `account_stable_id_match_plan.md` SID-08 / SID-14。
 
 ### 2026-09-08
