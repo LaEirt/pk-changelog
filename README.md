@@ -12,6 +12,7 @@
 
 ### 2026-09-10
 
+- **商城运营台 · 商品看课状态**：商品列表明确「站内视频 / 小鹅通看课 / 待补传·待上架」，可一键跳转课时上传。见 course_watch plan（`storefront_course_watch_plan.md`） §3.2。
 - **商城运营台 · 课时视频上传 ToC**：`/store/admin/courses` 对齐抖音/视频号「选课→传片→上架」三步；大拖拽区、进度条、中文状态（待上传/待上架/已上架）。见 course_watch plan §3.2（`storefront_course_watch_plan.md`）。
 - **商城 · 课包运营 + 站内看课（CW-2/CW-3）**：运营台可上传 mp4 / 标上架；买家有成片时「开始上课」进 `/course/watch`，无成片仍「去上课」跳小鹅。方案 storefront_course_watch_plan（`storefront_course_watch_plan.md`）。
 - **抖音小程序 P1.5**：底部 Tab（首页 / 我的课程 / 我的）+ `GET …/my_courses/` · `…/me/`；按 `openid`/`anonymous_code` 列已开通课。见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`） · `web/douyin-miniprogram/`（`douyin-miniprogram`）。
