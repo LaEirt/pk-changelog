@@ -12,6 +12,7 @@
 
 ### 2026-09-10
 
+- **商城 · 城市心驿站推广（P0）**：运营台落在**思维工作台**侧栏「城市心驿」（推广官/商品/锁客/统计对账）；Beat 扫 `日报.全域订单` 仅新用户计佣；买家 `/promo`、`/p/:code` 与个人中心邀请码引导（无提现）。见 `city_station_affiliate_plan.md`。
 - **SQL 目录统一**：`sql/` 顶层收成 `beat/`（原 celery_periodic）· `ddl/`（平台/落点 DDL）· `common/` · `eval/` · `archive/`；规则已对齐 `api_pull_spec` §2.5（`api_pull_spec.md`） · `sql-optimization.mdc`；入口 `sql/README.md`（`README.md`）。
 - **商城运营台 · 课程商品小鹅可选**：`xiaoe_resource_id` 可选关联；课包键=独立 `product_id`；编辑页可开「关联小鹅通开课」并同步看课方式，保存后同页上传成片。见 course_watch plan §3.2（`storefront_course_watch_plan.md`）。
 - **商城运营台 · 商品看课状态**：商品列表明确「站内视频 / 小鹅通看课 / 待补传·待上架」，可一键跳转课时上传。见 course_watch plan（`storefront_course_watch_plan.md`） §3.2。
