@@ -12,6 +12,7 @@
 
 ### 2026-09-10
 
+- **SQL 目录统一**：`sql/` 顶层收成 `beat/`（原 celery_periodic）· `ddl/`（平台/落点 DDL）· `common/` · `eval/` · `archive/`；规则已对齐 `api_pull_spec` §2.5（`api_pull_spec.md`） · `sql-optimization.mdc`；入口 `sql/README.md`（`README.md`）。
 - **商城运营台 · 课程商品小鹅可选**：`xiaoe_resource_id` 可选关联；课包键=独立 `product_id`；编辑页可开「关联小鹅通开课」并同步看课方式，保存后同页上传成片。见 course_watch plan §3.2（`storefront_course_watch_plan.md`）。
 - **商城运营台 · 商品看课状态**：商品列表明确「站内视频 / 小鹅通看课 / 待补传·待上架」，可一键跳转课时上传。见 course_watch plan（`storefront_course_watch_plan.md`） §3.2。
 - **商城运营台 · 课时视频上传 ToC**：`/store/admin/courses` 对齐抖音/视频号「选课→传片→上架」三步；大拖拽区、进度条、中文状态（待上传/待上架/已上架）。见 course_watch plan §3.2（`storefront_course_watch_plan.md`）。
@@ -206,9 +207,9 @@
 ### 2026-08-25
 
 - **商城 · 常军课程助手 P2**：Raw 迁入「厌学抑郁16大案例」；注册表 `cases_16` + 人设；清洗 6 课双写 `knowledge/chang_jun/`；仍 `preparing`（待百炼独立 KB）。见 `course_tutor_agent_plan.md` D10。
-- **小鹅通其余 Beat 拉数 · 全量入库**：商品 list/detail、用户、推广员、直播 list/overview 统一写入 `list_raw`/`detail_raw`/`overview_raw` + 关键投影（价格/微信 openId/等级/直播状态等）。DDL `sql/xiaoe/23_xiaoe_ods_api_full.sql`。见 `integrations/小鹅通/README.md`（`README.md`）。
-- **小鹅通售后 ODS · 全量入库**：`after_sale.list` 发现 + `after_sale.detail` 写入 `xiaoe_tech_order_refund.detail_raw` 及用户/物流/备注等投影列。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/22_xiaoe_aftersale_detail_full.sql`。
-- **小鹅通订单 ODS · 全量入库**：`xiaoe_tech_order.detail_raw` 存 order.detail 整包；并投影推广员ID / resource_id·spu_id / 支付方式等；缺 `detail_raw` 会补拉。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/xiaoe/21_xiaoe_order_detail_full.sql`。
+- **小鹅通其余 Beat 拉数 · 全量入库**：商品 list/detail、用户、推广员、直播 list/overview 统一写入 `list_raw`/`detail_raw`/`overview_raw` + 关键投影（价格/微信 openId/等级/直播状态等）。DDL `sql/ddl/xiaoe/23_xiaoe_ods_api_full.sql`。见 `integrations/小鹅通/README.md`（`README.md`）。
+- **小鹅通售后 ODS · 全量入库**：`after_sale.list` 发现 + `after_sale.detail` 写入 `xiaoe_tech_order_refund.detail_raw` 及用户/物流/备注等投影列。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/ddl/xiaoe/22_xiaoe_aftersale_detail_full.sql`。
+- **小鹅通订单 ODS · 全量入库**：`xiaoe_tech_order.detail_raw` 存 order.detail 整包；并投影推广员ID / resource_id·spu_id / 支付方式等；缺 `detail_raw` 会补拉。见 `integrations/小鹅通/README.md`（`README.md`） · `sql/ddl/xiaoe/21_xiaoe_order_detail_full.sql`。
 - **短信推广 · 小鹅通商品 ID**：订单详情 API 的 `resource_id`/`spu_id` 写入 `xiaoe_tech_order.商品ID`；ADS 回填**仅**该表（不 join 商品库、不采用「小鹅通订单总表」）；配置台「指定商品ID」仅粘贴 + 回查 `日报.全域订单`。映射见 `integrations/小鹅通/README.md`（`README.md`）。
 - **短信推广 · 指定商品ID ToC**：绑定区改为卡片（ADS 回查名称/平台/店铺）；W5 拆成「优先规则 / 其余订单走这里」兜底块，去掉晦涩 priority 数字心智。
 - **短信推广 · 指定商品ID 绑链**：绑定商品新增 `match_mode=goods_id`（可多 ID）；发信 `resolve` 优先按 ADS `商品id` 命中；投流专用品挂本链号池即可，不在 W5 写商品 ID 规则。见 `sms_landing_shortlink_plan.md`。
@@ -313,7 +314,7 @@
 - **数仓 · 企微 schema 治理二期**：引导智能体企微消息落 `企业微信_push.evt_guide_agent_text`（可走统一 `push_from`）；员工/部门表 `wecome_*` rename 为 `wecom_employee` / `wecom_department`。见 `wecom_bank_schema_governance_plan.md` §7.2。
 - **数仓 · schema 切流漏网补丁**：现网清零「企微与农行」函数引用（含支付宝 bank seed / 全域刷新旁路 / quick_bi）；对外收款 HTTP 补 AEAD 第二层；工作台姓名源与认领 JOIN 对齐 `企业微信`。见 `wecom_bank_schema_governance_plan.md`。
 - **数仓 · 企微 / 银行 schema 拆分完成**：宽表与推送落 `企业微信` / `企业微信_push`；对公收款 schema rename 为 `其他银行收款`；ADS/认领相关 SQL 已切流；OA 推送以 push 总表为准（ORM 双写默认关）。见 `wecom_bank_schema_governance_plan.md`。
-- **数仓 · 直播订单汇总补快手**：`refresh_直播订单汇总` / `sql/直播数据.sql` 按抖音同口径纳入快手公域（`带货人视频号=账号` + 直播流量 + 时间窗）；`/me` 直播 tab 与结算快照随 ADS 带上。见 `me_live_orders_plan.md`。
+- **数仓 · 直播订单汇总补快手**：`refresh_直播订单汇总` / `sql/archive/直播数据.sql` 按抖音同口径纳入快手公域（`带货人视频号=账号` + 直播流量 + 时间窗）；`/me` 直播 tab 与结算快照随 ADS 带上。见 `me_live_orders_plan.md`。
 - **工作台 · 分销账号一键审批增强**：一键按钮常显；新 Tab「历史申请记录」；企微历史 OA 最长 365 天回填入申请单；引导/tour 强化「先搜索再申请」。见 `account_oa_approval_plan.md`。
 - **工作台 · 分销账号一键企微审批（P0 收尾）**：OA-03/21 全绿；RBAC §5.4 / 引导知识库 / capability map 改为「一键申请（截图降级）」；ECS 部署脚本 `deploy_account_oa_ecs.py`。见 `account_oa_approval_plan.md`。
 - **工作台 · 分销账号一键企微审批（P0）**：查询有结果后可「一键申请绑定到我」；`oa_template` / `oa_apply` / `oa_detail`；对照真实模板控件；通过后**不**自动写维表。见 `account_oa_approval_plan.md`。
@@ -435,7 +436,7 @@
 - **集成 · 支付宝退款总表键与平台店铺**：`merge_refund_order_total` 售后单号改为 `refund_{商户退款请求号}`（空则流水号）；未入全域时平台/店铺兜底为「银行收款/支付宝」（经营码）或「支付宝/{数据来源}」。
 - **集成 · Flask→Django 迁移标已完结**：推送/OAuth/Token 与内部运营 Web 均归档至 `web/归档/flask/`；根 `flask/` 仅 README；工作台无 Flask 依赖。见 `flask_push_to_django_migration_plan.md`。
 - **数仓 · 赠课退款规则与开通同源**：`refresh_refund_candidate_gift` 改读 `dim_giftcourse_rule`；开通排除权威为 `dim_exclude_course`。见 `xiaoe_delivery_improvement_plan.md`。
-- **集成 · 支付宝切换收尾对账**：农行历史单一次性回补 ADS（`sql/alipay/53_backfill_ads_orders_from_bank.sql`，数据来源=`银行回补`）；重刷 `日报.全域订单(2024-12-01, today)`；经营码支路与全域金额对齐（孤儿清零）；运维脚本 `scripts/local/run_alipay_cutover_remediation.py`。
+- **集成 · 支付宝切换收尾对账**：农行历史单一次性回补 ADS（`sql/ddl/alipay/53_backfill_ads_orders_from_bank.sql`，数据来源=`银行回补`）；重刷 `日报.全域订单(2024-12-01, today)`；经营码支路与全域金额对齐（孤儿清零）；运维脚本 `scripts/local/run_alipay_cutover_remediation.py`。
 
 ### 2026-08-04
 
@@ -443,8 +444,8 @@
 - **集成 · 退款总表支付宝源切换**：`日报.merge_refund_order_total` 改为读 `"支付宝".alipay_data_bill_accountlog_query`（`交易退款`）；售后单号现为 `refund_{商户退款请求号}`（见 08-05）；清理旧键防双计。
 - **集成 · 支付宝 ETL 收入防抹零**：窗内仅有退款流水时回挂全量 sell；UPSERT 不用 0 覆盖已有收入/退款。例：`2026071623001434161446222509` 已恢复 6980。
 - **集成 · 支付宝交易状态「成功（有退款）」**：`update_user_id_status` / ETL 在 sell 成功且退款额>0 时写入新状态；全域订单映射为「已完成(部分退款)」并带出退款金额。见 `小鹅通.update_user_id_status.sql`。
-- **集成 · 支付宝删除 trade.query 表与遗留列**：`DROP` `alipay_trade_query`（及旧名）；`支付宝订单` 去掉「平台交易状态/买家账号/资金渠道json」。见 `sql/alipay/46_drop_alipay_trade_query.sql`。
-- **集成 · 支付宝 enrichment 回填**：从 `企微与农行.支付宝` 全量补空「同事/姓名/联系方式/产品」（脚本 `sql/alipay/52_backfill_enrichment_from_bank.sql`）。
+- **集成 · 支付宝删除 trade.query 表与遗留列**：`DROP` `alipay_trade_query`（及旧名）；`支付宝订单` 去掉「平台交易状态/买家账号/资金渠道json」。见 `sql/ddl/alipay/46_drop_alipay_trade_query.sql`。
+- **集成 · 支付宝 enrichment 回填**：从 `企微与农行.支付宝` 全量补空「同事/姓名/联系方式/产品」（脚本 `sql/ddl/alipay/52_backfill_enrichment_from_bank.sql`）。
 - **集成 · 支付宝退役 trade.query**：同步代码与 Beat 已移除；表/列删除见上条。见 `integrations/支付宝/`（`README.md`）。
 - **集成 · 支付宝订单模型收敛**：废弃 `"支付宝订单认领"`；同事/姓名/联系方式/产品/直播标题并入 `"支付宝订单"`；ETL 不覆盖 enrichment；全域订单 / ORDER_CLAIM / seed 已对齐。见 `integrations/支付宝/`（`README.md`）。
 - **工作台 · 订单认领顶栏导出对齐**：认领 / 企微填报共用 `WorkbenchExportDropdown`（导出本页即时下载、导出全部异步任务）；企微新增 kind `unclaimed_order.wecom_product_fill`。见 `wecom_unclaimed_decouple_plan.md`。
@@ -504,11 +505,11 @@
 
 ### 2026-07-27
 
-- **工作台 · 歧义历史下单时间清洗**：`业务表.歧义订单_历史.下单时间` 收敛为 `timestamp(0)`（ISO/`YYYYMMDD` 转换，脏值置空）；去掉 `try_timestamp0`；`ORDER_CLAIM` / 对内歧义订单直接读类型列。DDL：`sql/api_data/ambiguous_order_history_timestamp_fix_ddl.sql`。
+- **工作台 · 歧义历史下单时间清洗**：`业务表.歧义订单_历史.下单时间` 收敛为 `timestamp(0)`（ISO/`YYYYMMDD` 转换，脏值置空）；去掉 `try_timestamp0`；`ORDER_CLAIM` / 对内歧义订单直接读类型列。DDL：`sql/ddl/api_data/ambiguous_order_history_timestamp_fix_ddl.sql`。
 - **工作台 · 订单认领导入放宽同事**：批量导入仅「订单号」必填；同事与其它明细列一样，有列且有值才更新（空不覆盖）。
-- **工作台 · 订单认领列类型收敛**：`业务表.订单认领汇总` 的 `下单时间`/`最近一次更新时间`→`timestamp(0)`，`商品金额`→`numeric(18,2)`，`特殊情况`→`text`；认领 API 去掉 `::varchar`/`::timestamp` 过滤转换。DDL：`sql/api_data/unclaimed_order_column_types_ddl.sql`。
+- **工作台 · 订单认领列类型收敛**：`业务表.订单认领汇总` 的 `下单时间`/`最近一次更新时间`→`timestamp(0)`，`商品金额`→`numeric(18,2)`，`特殊情况`→`text`；认领 API 去掉 `::varchar`/`::timestamp` 过滤转换。DDL：`sql/ddl/api_data/unclaimed_order_column_types_ddl.sql`。
 - **工作台 · 订单认领导入预览**：解析后以状态预览表替代「已忽略」提示（将导入 / 不在花名册）。
-- **工作台 · 订单认领操作人**：`业务表.订单认领汇总` 新增 `操作人`；bulk/import/admin_clear 写入当前登录用户；列表与导出展示操作人与最近更新时间。DDL：`sql/api_data/unclaimed_order_operator_ddl.sql`。
+- **工作台 · 订单认领操作人**：`业务表.订单认领汇总` 新增 `操作人`；bulk/import/admin_clear 写入当前登录用户；列表与导出展示操作人与最近更新时间。DDL：`sql/ddl/api_data/unclaimed_order_operator_ddl.sql`。
 - **工作台 · 订单认领导入可选列**：批量导入在「订单号」外支持同事/商品名称/用户昵称/买家手机号/直播标题/特殊情况；有列且有值才更新。
 - **工作台 · 订单认领去重入口**：移除认领页「歧义订单」遗留页签及 `unclaimed_orders/ambiguous-search/`；歧义流程统一侧栏 `/ambiguous_order`。见 `ambiguous_order_plan.md`。
 - **工作台 · 下线游客账号**：库内已无 guest 用户/组；移除写 API `wb_guest` 闸门与登录页/顶栏游客公告；登录/注册/Admin 建用户拒绝历史游客用户名。见 `workbench_rbac.md` §9。
