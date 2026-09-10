@@ -12,8 +12,15 @@
 
 ### 2026-09-10
 
-- **抖音小程序 · 领课履约后端（P0b）**：`/api-data/douyin-mp/` 提供 `phone_bind` / `url_link` / `order_context`；开课复用订单兑换管道（授权号 + 幂等）。见 `douyin_miniprogram_phone_fulfillment_plan`（`douyin_miniprogram_phone_fulfillment_plan.md`）。
-- **矩阵 SCRM 标准拉数**：OpenAPI → `微信订单.matrix_scrm_robot` / `tag` / `external_user`（手工月表进数路径的第一波 ODS；合并函数仍读月表）。见 `matrix_scrm_external_user_pull_plan`（`matrix_scrm_external_user_pull_plan.md`） · `integrations/矩阵SCRM`（`README.md`）。
+- **商城 · 课包运营 + 站内看课（CW-2/CW-3）**：运营台 `/store/admin/courses`（`index.vue`） 可上传 mp4 / 标 ready；买家有成片时「开始上课」进 `/course/watch`（`watch.vue`），无成片仍「去上课」跳小鹅并提示同步可看。方案 storefront_course_watch_plan（`storefront_course_watch_plan.md`）。
+- **抖音小程序 P1.5**：底部 Tab（首页 / 我的课程 / 我的）+ `GET …/my_courses/` · `…/me/`；按 `openid`/`anonymous_code` 列已开通课。见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`） · `web/douyin-miniprogram/`（`douyin-miniprogram`）。
+- **抖音小程序规格升级**：**取消薄履约**，改为 ToC 壳（首页 / 我的课程 / 我的 + 领课 / 播放）；API-MP-06/07 与阶段 P1.5。见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`）。
+- **抖音领课 ToC**：开通页三步进度 + 底栏授权；播放页「视频置顶 + 目录」、自动第一讲 / 下一讲连播（网课目录式，非短视频流）。见 `web/douyin-miniprogram/`（`douyin-miniprogram`） · 课程交互层 §6.2（`storefront_course_watch_plan.md`）。
+- **抖音购后 P1（播课预研）**：共享 `course_play` + `GET/POST …/douyin-mp/catalog|play_token/`；小程序新增 `pages/player`。课包运营单源见 `storefront_course_watch_plan.md`；授权壳见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`）。默认 `COURSE_PLAY_MOCK` 假播链，生产关 mock 并配 OSS。资质卡住期间真机联调暂停，商城路径独立交付（见上条 CW-2/3）。
+- **课程交互层（规划）**：自有课包 OSS `courses/` + 共享 `catalog`/`play_token`，串联商城 HTML5 与抖音小程序看课；运营上传落 `/store/admin`。见 `storefront_course_watch_plan.md`；抖音授权壳仍见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`）。
+- **咨询交付 · 漏单补丁**：`update_consult_order` 不再只收「上月 1 日～今天」。银行收款等晚进全域订单、下单日已出月窗的咨询单会按「主表尚无该订单号」补入。见 `consult_appointment_plan.md` §2.3 · ETL-MISS-01。
+- **抖音小程序 · 领课履约预研（P0b）**：`/api-data/douyin-mp/` 提供 `phone_bind` / `url_link` / `order_context`；小程序 `pages/fulfill` 授权开通。成功态不跳小鹅；站内看课为 P1。见 `douyin_miniprogram_phone_fulfillment_plan`（`douyin_miniprogram_phone_fulfillment_plan.md`）。
+- **矩阵 SCRM 标准拉数（UAT）**：网关 `open.matrixscrm.com/bimatrix_scrm`；Header `token`；首轮 `robot=61` / `external_user≈25万` 入 `微信订单.matrix_scrm_*`（合并仍读月表；字段对照见 api/index（`index.md`））。见 `matrix_scrm_external_user_pull_plan`（`matrix_scrm_external_user_pull_plan.md`） · `integrations/矩阵SCRM`（`README.md`）。
 
 ### 2026-09-09
 
