@@ -12,7 +12,8 @@
 
 ### 2026-09-10
 
-- **商城 · 课包运营 + 站内看课（CW-2/CW-3）**：运营台 `/store/admin/courses`（`index.vue`） 可上传 mp4 / 标 ready；买家有成片时「开始上课」进 `/course/watch`（`watch.vue`），无成片仍「去上课」跳小鹅并提示同步可看。方案 storefront_course_watch_plan（`storefront_course_watch_plan.md`）。
+- **商城运营台 · 课时视频上传 ToC**：`/store/admin/courses` 对齐抖音/视频号「选课→传片→上架」三步；大拖拽区、进度条、中文状态（待上传/待上架/已上架）。见 course_watch plan §3.2（`storefront_course_watch_plan.md`）。
+- **商城 · 课包运营 + 站内看课（CW-2/CW-3）**：运营台可上传 mp4 / 标上架；买家有成片时「开始上课」进 `/course/watch`，无成片仍「去上课」跳小鹅。方案 storefront_course_watch_plan（`storefront_course_watch_plan.md`）。
 - **抖音小程序 P1.5**：底部 Tab（首页 / 我的课程 / 我的）+ `GET …/my_courses/` · `…/me/`；按 `openid`/`anonymous_code` 列已开通课。见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`） · `web/douyin-miniprogram/`（`douyin-miniprogram`）。
 - **抖音小程序规格升级**：**取消薄履约**，改为 ToC 壳（首页 / 我的课程 / 我的 + 领课 / 播放）；API-MP-06/07 与阶段 P1.5。见 购后 plan（`douyin_miniprogram_phone_fulfillment_plan.md`）。
 - **抖音领课 ToC**：开通页三步进度 + 底栏授权；播放页「视频置顶 + 目录」、自动第一讲 / 下一讲连播（网课目录式，非短视频流）。见 `web/douyin-miniprogram/`（`douyin-miniprogram`） · 课程交互层 §6.2（`storefront_course_watch_plan.md`）。
