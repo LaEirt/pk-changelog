@@ -4,11 +4,16 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-09
+- 同步日：2026-09-10
 
 ---
 
 ## 更新动态
+
+### 2026-09-10
+
+- **抖音小程序 · 领课履约后端（P0b）**：`/api-data/douyin-mp/` 提供 `phone_bind` / `url_link` / `order_context`；开课复用订单兑换管道（授权号 + 幂等）。见 `douyin_miniprogram_phone_fulfillment_plan`（`douyin_miniprogram_phone_fulfillment_plan.md`）。
+- **矩阵 SCRM 标准拉数**：OpenAPI → `微信订单.matrix_scrm_robot` / `tag` / `external_user`（手工月表进数路径的第一波 ODS；合并函数仍读月表）。见 `matrix_scrm_external_user_pull_plan`（`matrix_scrm_external_user_pull_plan.md`） · `integrations/矩阵SCRM`（`README.md`）。
 
 ### 2026-09-09
 
