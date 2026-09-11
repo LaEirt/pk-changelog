@@ -12,6 +12,8 @@
 
 ### 2026-09-11
 
+- **城市心驿 · 文档审计对齐**：plan/索引与实现对齐——**P0+P1 核心已落地**；三枢纽 + **推广分组 pool**；花名册选品 **UI+BE 门禁**（禁手填 `match_*`、重复 409、分组重名校验、绑客前释放过期锁客）；档位 FE 仅名称+月数（自动 `L{n}_custom`）；统计/矩阵文案去 ADS/槽位术语；移除废弃 FE API helper。UAT / CS-02/04/10/11/16-20/23 仍 open。见 `city_station_affiliate_plan.md`。
+- **城市心驿 · 选品禁手填**：新建分组与组内添加/更换统计商品统一花名册拼音选品（`CsaFcnProductPicker`），对上键由系统带出，避免手填对不上订单。见 `city_station_affiliate_plan.md` T4/T32。
 - **城市心驿 · 分组主路径**：规则设置改为「进入分组 → 推广官 → 家长 → 订单」；新建三步：起名 → 选推广官 → 关联统计商品。见 `city_station_affiliate_plan.md` T32。
 - **城市心驿 · 每组单独设档**：规则设置展开分组可增删本档费率行，列表只展示本组已配档；批量添加不默认塞满全部档。见 `city_station_affiliate_plan.md` T31。
 - **城市心驿 · 50 人 demo 分镜**：`seed_affiliate_demo` 扩至 50 名；花名册档位表格；详情绑客少树多表；启停/无码/零绑客/多笔商品/绑客>20。见 `city_station_affiliate_plan.md` T30。
@@ -23,10 +25,7 @@
 - **城市心驿 · 三枢纽导航**：侧栏只留「数据看板 / 推广官 / 规则设置」，流水·锁客·矩阵·档位·审计改为页内 Tab；看板增加被绑人成交与多维图表。见 `city_station_affiliate_plan.md`。
 - **城市心驿 · 自建档位 / 禁多级 / 审计导出**：运营可增删自定义档位码；API 硬拒绝上下线分佣字段（传销合规）；工作台「操作审计」可查可导出 CSV。见 `city_station_affiliate_plan.md`。
 - **城市心驿 · 全退冲回**：Beat 不再只扫 `支付时间` 水位；已计提订单在 ADS 变为「购买后退款」或 `商品金额=0` 后会补冲回，且同一订单只冲一次。对账 KPI 按计提+冲回净值。见 `city_station_affiliate_plan.md` CS-06。
-
-### 2026-09-11
-
-- **城市心驿 · L0–L3 + 批量费率分组 + demo 链路**：档位扩至 `L3_partner`；推广商品支持批量添加并按组配 L0–L3 费率；`seed_affiliate_demo` 绑定真实 ADS「常军亲子谈判」并探测计提。见 `city_station_affiliate_plan.md`。
+- **城市心驿 · L0–L3 + 批量费率分组 + demo 链路**：档位扩至 `L3_partner`；推广分组支持批量添加并按组配 L0–L3 费率；`seed_affiliate_demo` 绑定真实 ADS「常军亲子谈判」并探测计提。见 `city_station_affiliate_plan.md`。
 
 ### 2026-09-10
 
