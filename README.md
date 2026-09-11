@@ -12,9 +12,10 @@
 
 ### 2026-09-11
 
-- **城市心驿 · 50 人 demo 分镜**：`seed_affiliate_demo` 扩至 50 名推广官（L0 表格 / 其余树图；启停、无码、零绑客、多笔商品、绑客>20），`--bind-from-ads` 优先真实多笔成交。见 `city_station_affiliate_plan.md` T30。
+- **城市心驿 · 50 人 demo 分镜**：`seed_affiliate_demo` 扩至 50 名；花名册档位表格；详情绑客少树多表；启停/无码/零绑客/多笔商品/绑客>20。见 `city_station_affiliate_plan.md` T30。
 - **城市心驿 · 绑客成交商品明细**：推广官详情 / 锁客表可展开家长，查看区间内每笔商品、金额与支付时间；demo 优先绑多笔成交买家。见 `city_station_affiliate_plan.md` T30。
-- **城市心驿 · 推广官树图 / 详情卡片**：档位组 20 人以内用树图，超出用表；点姓名打开详情看邀请码下家长购买。见 `city_station_affiliate_plan.md` T29。
+- **城市心驿 · 推广官详情用户树图**：树图仅用于详情里邀请码下的家长（≤20）；档位花名册始终表格。见 `city_station_affiliate_plan.md` T29。
+- **城市心驿 · 推广官树图 / 详情卡片**：点姓名打开详情看邀请码下家长购买。见 `city_station_affiliate_plan.md` T29。
 - **城市心驿 · 档位分组看绑客成交**：推广官按档位分组，行上直接看绑客数与区间成交；规则设置分组行内展示各档费率。见 `city_station_affiliate_plan.md` T29。
 - **城市心驿 · 推广官即时筛选 / 批量操作**：名单去掉「查询」按钮，输入与下拉即时拉数；勾选后可批量改档、启用、停用、签发主码。见 `city_station_affiliate_plan.md` T28。
 - **城市心驿 · 三枢纽导航**：侧栏只留「数据看板 / 推广官 / 规则设置」，流水·锁客·矩阵·档位·审计改为页内 Tab；看板增加被绑人成交与多维图表。见 `city_station_affiliate_plan.md`。
