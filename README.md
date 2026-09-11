@@ -12,6 +12,7 @@
 
 ### 2026-09-11
 
+- **城市心驿 · 每组单独设档**：规则设置展开分组可增删本档费率行，列表只展示本组已配档；批量添加不默认塞满全部档。见 `city_station_affiliate_plan.md` T31。
 - **城市心驿 · 50 人 demo 分镜**：`seed_affiliate_demo` 扩至 50 名；花名册档位表格；详情绑客少树多表；启停/无码/零绑客/多笔商品/绑客>20。见 `city_station_affiliate_plan.md` T30。
 - **城市心驿 · 绑客成交商品明细**：推广官详情 / 锁客表可展开家长，查看区间内每笔商品、金额与支付时间；demo 优先绑多笔成交买家。见 `city_station_affiliate_plan.md` T30。
 - **城市心驿 · 推广官详情用户树图**：树图仅用于详情里邀请码下的家长（≤20）；档位花名册始终表格。见 `city_station_affiliate_plan.md` T29。
