@@ -12,6 +12,7 @@
 
 ### 2026-09-15
 
+- **城市心驿 · 我的推广订单**：商城 `/promo` 家长订单改为读 ADS 组内成交（不再依赖已计提佣金流水），有绑客且已配分组课程即可看到成交。见 `city_station_affiliate_plan.md` API-16 / API-17。
 - **城市心驿 · 批量设抽成**：规则设置组内可一次勾选多商品写入同一套档位抽成（`POST …/promo_goods/rates/batch/`）。见 `city_station_affiliate_plan.md` T44 / CS-45。
 - **城市心驿 · 分组可见性**：加入分组可直接新建（起名+选课）；商城「我的推广」在未配好分组商品前不展示家长订单；运营台/计佣只认所属分组课程，不露出非推广单。见 `city_station_affiliate_plan.md` T43 / CS-44。
 - **城市心驿 · 推广官重命名**：名单行操作与详情可改展示姓名（`PATCH display_name`，空名拒、最长 64）。见 `city_station_affiliate_plan.md` T41 / CS-43。
