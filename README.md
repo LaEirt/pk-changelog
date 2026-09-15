@@ -12,11 +12,12 @@
 
 ### 2026-09-15
 
-- **城市心驿 · 我的推广订单**：商城 `/promo` 家长订单改为读 ADS 组内成交（不再依赖已计提佣金流水），有绑客且已配分组课程即可看到成交。见 `city_station_affiliate_plan.md` API-16 / API-17。
+- **城市心驿 · 商城文案**：邀请引导与「我的推广」对外称谓由「家长」改为「用户」（如发给用户 / 已绑定用户 / 用户订单）。
+- **城市心驿 · 我的推广订单**：商城 `/promo` 用户订单改为读 ADS 组内成交（不再依赖已计提佣金流水），有绑客且已配分组课程即可看到成交。见 `city_station_affiliate_plan.md` API-16 / API-17。
 - **城市心驿 · 批量设抽成**：规则设置组内可一次勾选多商品写入同一套档位抽成（`POST …/promo_goods/rates/batch/`）。见 `city_station_affiliate_plan.md` T44 / CS-45。
-- **城市心驿 · 分组可见性**：加入分组可直接新建（起名+选课）；商城「我的推广」在未配好分组商品前不展示家长订单；运营台/计佣只认所属分组课程，不露出非推广单。见 `city_station_affiliate_plan.md` T43 / CS-44。
+- **城市心驿 · 分组可见性**：加入分组可直接新建（起名+选课）；商城「我的推广」在未配好分组商品前不展示用户订单；运营台/计佣只认所属分组课程，不露出非推广单。见 `city_station_affiliate_plan.md` T43 / CS-44。
 - **城市心驿 · 推广官重命名**：名单行操作与详情可改展示姓名（`PATCH display_name`，空名拒、最长 64）。见 `city_station_affiliate_plan.md` T41 / CS-43。
-- **城市心驿 · 商城「我的推广」**：推广官端只展示绑定家长数与家长订单（掩码手机），**不**返回/展示佣金奖励；入口文案「看看邀请进度」。见 `city_station_affiliate_plan.md` CS-G7 / API-16。
+- **城市心驿 · 商城「我的推广」**：推广官端只展示绑定用户数与用户订单（掩码手机），**不**返回/展示佣金奖励；入口文案「看看邀请进度」。见 `city_station_affiliate_plan.md` CS-G7 / API-16。
 - **城市心驿 · 商城「我的推广」修复**：修复 `/store/promo/me/` 因 datetime 序列化失败整页空白；可用 `seed_affiliate_demo --demo-ledger-for-code` 写入演示流水。见 `city_station_affiliate_plan.md` §3.8 / API-16。
 - **城市心驿 · 下线默认抽成**：规则设置去掉「默认抽成」Tab；计佣只认组内商品档位费率；`/affiliate/rate_matrix/` 已移除。见 `city_station_affiliate_plan.md` §3.2 / API-06。
 - **城市心驿 · 佣金流水导出**：数据看板「佣金流水」对齐工作台标准导出（本页/全部 × CSV/XLSX）；全部走 `/affiliate/commissions/export/?format=`，对账导出同步支持 xlsx。见 `city_station_affiliate_plan.md` API-10e / CS-42。
