@@ -12,6 +12,7 @@
 
 ### 2026-09-15
 
+- **城市心驿 · 分组可见性**：加入分组可直接新建（起名+选课）；商城「我的推广」在未配好分组商品前不展示家长订单；运营台/计佣只认所属分组课程，不露出非推广单。见 `city_station_affiliate_plan.md` T43 / CS-44。
 - **城市心驿 · 推广官重命名**：名单行操作与详情可改展示姓名（`PATCH display_name`，空名拒、最长 64）。见 `city_station_affiliate_plan.md` T41 / CS-43。
 - **城市心驿 · 商城「我的推广」**：推广官端只展示绑定家长数与家长订单（掩码手机），**不**返回/展示佣金奖励；入口文案「看看邀请进度」。见 `city_station_affiliate_plan.md` CS-G7 / API-16。
 - **城市心驿 · 商城「我的推广」修复**：修复 `/store/promo/me/` 因 datetime 序列化失败整页空白；可用 `seed_affiliate_demo --demo-ledger-for-code` 写入演示流水。见 `city_station_affiliate_plan.md` §3.8 / API-16。
