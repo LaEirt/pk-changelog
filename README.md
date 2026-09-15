@@ -12,6 +12,7 @@
 
 ### 2026-09-15
 
+- **城市心驿 · 下线默认抽成**：规则设置去掉「默认抽成」Tab；计佣只认组内商品档位费率；`/affiliate/rate_matrix/` 已移除。见 `city_station_affiliate_plan.md` §3.2 / API-06。
 - **城市心驿 · 佣金流水导出**：数据看板「佣金流水」对齐工作台标准导出（本页/全部 × CSV/XLSX）；全部走 `/affiliate/commissions/export/?format=`，对账导出同步支持 xlsx。见 `city_station_affiliate_plan.md` API-10e / CS-42。
 - **城市心驿 · 锁客核实贴图**：新建/改绑备注区支持 Ctrl+V 粘贴与选图；上传工作台 OSS `affiliate/bind_notes/`；文字或截图至少其一。见 `city_station_affiliate_plan.md` §6.5.2。
 - **城市心驿 · 佣金流水财务列**：数据看板「佣金流水」与对账导出补充 **商品金额**、**分佣比例**、**原生订单状态**（ADS 售后）；流水状态与佣金分列，便于财务用金额×比例核账。见 `city_station_affiliate_plan.md` T42。
