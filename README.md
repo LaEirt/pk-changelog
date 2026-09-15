@@ -12,6 +12,7 @@
 
 ### 2026-09-15
 
+- **城市心驿 · 批量设抽成**：规则设置组内可一次勾选多商品写入同一套档位抽成（`POST …/promo_goods/rates/batch/`）。见 `city_station_affiliate_plan.md` T44 / CS-45。
 - **城市心驿 · 分组可见性**：加入分组可直接新建（起名+选课）；商城「我的推广」在未配好分组商品前不展示家长订单；运营台/计佣只认所属分组课程，不露出非推广单。见 `city_station_affiliate_plan.md` T43 / CS-44。
 - **城市心驿 · 推广官重命名**：名单行操作与详情可改展示姓名（`PATCH display_name`，空名拒、最长 64）。见 `city_station_affiliate_plan.md` T41 / CS-43。
 - **城市心驿 · 商城「我的推广」**：推广官端只展示绑定家长数与家长订单（掩码手机），**不**返回/展示佣金奖励；入口文案「看看邀请进度」。见 `city_station_affiliate_plan.md` CS-G7 / API-16。
