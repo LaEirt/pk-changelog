@@ -12,6 +12,8 @@
 
 ### 2026-09-16
 
+- **工作台 · 城市心驿站**：推广分组列表/组内支持「重命名」（同名拒、空名拒）。见 `city_station_affiliate_plan.md` CS-50。
+- **商城 · 一单多课开通漏课**：同外部单号被小鹅去重只落一门；改为行级 `{order_no}#{resource_id}`，开通后轮询 `permission.check` 全齐才标已开通（TB-T-DLV-01d）。
 - **商城 · 退款关课漏权排查**：实扫发现历史单因小鹅 `40004`+瞬时无权益误标已关，重吊后已无权益；关课判定改为复探并禁止不明态标 closed。见 `storefront_toc_benchmark_plan.md` TB-T-DLV-11。
 - **商城 · Element Plus 中文**：`defaultLocale=zh-cn`；订单详情/收银台 `el-page-header` 显式「返回」，避免英文 Back。
 - **商城 · 时间展示去 ISO `T`**：订单详情/列表/售后/运营台等统一 `formatDateTime`，不再直接绑 `create_time` 带 `T`/毫秒串。
