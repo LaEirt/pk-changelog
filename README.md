@@ -12,6 +12,7 @@
 
 ### 2026-09-16
 
+- **商城支付结果页**：修复付款成功后长期停在「正在开通」——轮询延至开通终态、软超时换文案；结果接口对未入队开通 CAS 补漏。见 `storefront_toc_benchmark_plan.md` TB-T-FE-04 / TB-T-DLV-01b。
 - **城市心驿 · 锁客少过滤 + 清 demo**：锁客 Tab 去掉档位/来源/计佣/状态筛，默认全量；`--wipe-demo` 单独执行不再自动重种。见 `city_station_affiliate_plan.md` T35。
 - **城市心驿 · 普通用户邀请绑定**：个人中心侧栏增加「邀请绑定」，可填邀请码或查看已关联邀请人（推广官仍只见「我的推广」）。见 `city_station_affiliate_plan.md` CS-G11 / API-15b。
 - **城市心驿 · 邀请互绑交互**：落地页登录回流、邀请人展示、绑成功/冲突 Toast；单用户仅关联一名推广官；推广官不可被另一推广官锁客；OAuth 登录后消费邀请 cookie。见 `city_station_affiliate_plan.md` T26 / CS-48。
