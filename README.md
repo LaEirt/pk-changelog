@@ -12,6 +12,7 @@
 
 ### 2026-09-16
 
+- **商城 · 支付后查开通**：个人中心订单条新增「课程开通」，可主动刷新网课开通状态；慢开通时支付结果页引导去个人中心。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-07。
 - **商城运营台 · 外渠兑换按钮互斥**：已开通只显示「关闭课程」，不再叠「确认开通状态」（demo 无小鹅用户会 400）。见 `storefront_order_redeem_plan.md` OR-T-A03b。
 - **商城开课支付链路**：支付入队改统一 CAS，避免双 worker 把已开通打成失败；无小鹅且无站内成片不再假「已开通」；对症历史 `connection already closed`。见 `storefront_toc_benchmark_plan.md` §7。
 - **商城运营台 · 订单主动退款**：订单详情可无工单原路退款（有进行中售后仍走工单）；全额退款吊权。见 `storefront_ops_console_plan.md` §11.8.1。
