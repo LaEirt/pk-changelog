@@ -12,10 +12,11 @@
 
 ### 2026-09-16
 
+- **商城 · 个人中心「兑换开课」**：订单号兑换并入原「课程开通」区块，侧栏只保留一个入口；旧锚 `#profile-order-redeem` 仍可用。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-08 · `storefront_order_redeem_plan.md`。
 - **商城 · 开课引导商品图文**：支付结果/订单详情开课动画展示商品名+封面；一单多课横滑并提示「正在开通 N 门课」。见 `storefront_toc_benchmark_plan.md` §7.4 / TB-T-FE-06。
 - **商城 · 退款关课守卫**：全额退款吊权前查 `日报.全域订单`——其它渠道仍有同课有效单则不调小鹅关课（`kept_due_to_other_platform_entitlement`）。见 `storefront_toc_benchmark_plan.md` TB-T-DLV-11。
-- **商城 · 个人中心去上课**：已开通网课在「课程开通」区块直接点「去上课」/「开始上课」；订单条有可上课时改显示「去上课」并优先角标。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-08 · 课程交互层（`storefront_course_watch_plan.md`） T-CW-09。
-- **商城 · 支付后查开通**：个人中心订单条新增「课程开通」，可主动刷新网课开通状态；慢开通时支付结果页引导去个人中心。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-07。
+- **商城 · 个人中心去上课**：已开通网课在「兑换开课」区块直接点「去上课」/「开始上课」；订单条有可上课时改显示「去上课」并优先角标。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-08 · 课程交互层（`storefront_course_watch_plan.md`） T-CW-09。
+- **商城 · 支付后查开通**：个人中心订单条「兑换开课」，可主动刷新网课开通状态；慢开通时支付结果页引导去个人中心。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-07。
 - **商城运营台 · 外渠兑换按钮互斥**：已开通只显示「关闭课程」，不再叠「确认开通状态」（demo 无小鹅用户会 400）。见 `storefront_order_redeem_plan.md` OR-T-A03b。
 - **商城开课支付链路**：支付入队改统一 CAS，避免双 worker 把已开通打成失败；无小鹅且无站内成片不再假「已开通」；对症历史 `connection already closed`。见 `storefront_toc_benchmark_plan.md` §7。
 - **商城运营台 · 订单主动退款**：订单详情可无工单原路退款（有进行中售后仍走工单）；全额退款吊权。见 `storefront_ops_console_plan.md` §11.8.1。
