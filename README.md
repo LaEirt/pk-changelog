@@ -12,6 +12,8 @@
 
 ### 2026-09-16
 
+- **商城 · 多课单一单开通修复**：一单多课本就一条订单；修复开课任务 `FOR UPDATE`+`LEFT JOIN` 崩溃导致长期「开通中」，并补 pending 滞留补扫；列表展示「等 N 门课」与开通门数，长标题截断。见 `storefront_toc_benchmark_plan.md` §7。
+- **商城 · 个人中心课程开通合卡**：「课程开通」与外渠订单号兑换并入同一模块；兑换记录改为单行空态，不再大块占位。见 `storefront_toc_benchmark_plan.md` UX-15 / 订单号开课。
 - **商城 · 开课引导商品图文**：支付结果/订单详情开课动画展示商品名+封面；一单多课横滑并提示「正在开通 N 门课」。见 `storefront_toc_benchmark_plan.md` §7.4 / TB-T-FE-06。
 - **商城 · 退款关课守卫**：全额退款吊权前查 `日报.全域订单`——其它渠道仍有同课有效单则不调小鹅关课（`kept_due_to_other_platform_entitlement`）。见 `storefront_toc_benchmark_plan.md` TB-T-DLV-11。
 - **商城 · 个人中心去上课**：已开通网课在「课程开通」区块直接点「去上课」/「开始上课」；订单条有可上课时改显示「去上课」并优先角标。见 `storefront_toc_benchmark_plan.md` TB-TOC-PROF-08 · 课程交互层（`storefront_course_watch_plan.md`） T-CW-09。
