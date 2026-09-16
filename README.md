@@ -12,6 +12,7 @@
 
 ### 2026-09-16
 
+- **商城 · 退款关课漏权排查**：实扫发现历史单因小鹅 `40004`+瞬时无权益误标已关，重吊后已无权益；关课判定改为复探并禁止不明态标 closed。见 `storefront_toc_benchmark_plan.md` TB-T-DLV-11。
 - **商城 · Element Plus 中文**：`defaultLocale=zh-cn`；订单详情/收银台 `el-page-header` 显式「返回」，避免英文 Back。
 - **商城 · 时间展示去 ISO `T`**：订单详情/列表/售后/运营台等统一 `formatDateTime`，不再直接绑 `create_time` 带 `T`/毫秒串。
 - **商城 · 主单/子单行 + 抖音式订单卡**：`user_order` 主单 + 强化 `user_order_item`（封面快照等）；列表 API 返回 `items[]`；个人中心「课程开通」主副图列表 + **分页**（`page_size=5`）。见 `storefront_order_line_model_plan.md`。
