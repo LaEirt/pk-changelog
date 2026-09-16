@@ -12,6 +12,8 @@
 
 ### 2026-09-16
 
+- **商城运营台 · 外渠兑换按钮互斥**：已开通只显示「关闭课程」，不再叠「确认开通状态」（demo 无小鹅用户会 400）。见 `storefront_order_redeem_plan.md` OR-T-A03b。
+- **商城开课支付链路**：支付入队改统一 CAS，避免双 worker 把已开通打成失败；无小鹅且无站内成片不再假「已开通」；对症历史 `connection already closed`。见 `storefront_toc_benchmark_plan.md` §7。
 - **商城运营台 · 订单主动退款**：订单详情可无工单原路退款（有进行中售后仍走工单）；全额退款吊权。见 `storefront_ops_console_plan.md` §11.8.1。
 - **商城支付结果页**：修复付款成功后长期停在「正在开通」——轮询延至开通终态、软超时换文案；结果接口对未入队开通 CAS 补漏。见 `storefront_toc_benchmark_plan.md` TB-T-FE-04 / TB-T-DLV-01b。
 - **城市心驿 · 锁客少过滤 + 清 demo**：锁客 Tab 去掉档位/来源/计佣/状态筛，默认全量；`--wipe-demo` 单独执行不再自动重种。见 `city_station_affiliate_plan.md` T35。
