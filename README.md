@@ -12,6 +12,8 @@
 
 ### 2026-09-16
 
+- **商城 · Element Plus 中文**：`defaultLocale=zh-cn`；订单详情/收银台 `el-page-header` 显式「返回」，避免英文 Back。
+- **商城 · 时间展示去 ISO `T`**：订单详情/列表/售后/运营台等统一 `formatDateTime`，不再直接绑 `create_time` 带 `T`/毫秒串。
 - **商城 · 主单/子单行 + 抖音式订单卡**：`user_order` 主单 + 强化 `user_order_item`（封面快照等）；列表 API 返回 `items[]`；个人中心「课程开通」主副图列表 + **分页**（`page_size=5`）。见 `storefront_order_line_model_plan.md`。
 - **商城 · 版心加宽**：内容区 `--sf-container` 1200→1400px，宽屏两侧留白收窄。见 `UI_DESIGN.md`。
 - **商城 · 多课单一单开通修复**：一单多课本就一条订单；修复开课任务 `FOR UPDATE`+`LEFT JOIN` 崩溃导致长期「开通中」，并补 pending 滞留补扫；列表展示「等 N 门课」与开通门数，长标题截断。见 `storefront_toc_benchmark_plan.md` §7。
