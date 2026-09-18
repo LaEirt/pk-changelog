@@ -4,14 +4,25 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-17
+- 同步日：2026-09-18
 
 ---
 
 ## 更新动态
 
+### 2026-09-18
+
+- **工作台 · 咨询交付 · 退款咨询师**：主表「退款次数」灰 tag 可带人名；多咨询师交付登记退款次数须选归属；交付路径部分退仅显式填写才带人名。见 `consult_delivery_plan.md` §3.14.1a。
+- **工作台 · 咨询交付 · 交付路径列**：主表「咨询师交付路径」按人 tag（原下单 / 换入 / 部分退），扫表可见换师+部分退；见 `consult_delivery_plan.md` §3.14。
+- **工作台 · 结算快照**：切片**含** `{姓名}_主播订单`（同事代播时主播仍需核对）；不再过滤主播列。见 `order_settlement_snapshot_plan.md` T5c / OS-01b。
+
 ### 2026-09-17
 
+- **城市心驿站 · 锁客快捷筛选**：默认全量；「全部 / 未购 / 已购」按钮切片区间成交。见 T47。
+- **城市心驿站 · 锁客 UAT 六宫格**：`seed_affiliate_bind_status_uat` 覆盖有效/已过期/已解除 × 未购/已购；已购取近 30 天组内 ADS **实付**单；列表与详情不默认只拉 `active`。见 T47 / Q-expire。
+- **城市心驿站 · 详情家长操作**：邀约树点选后改为「改绑」跳转锁客 Tab；锁客列表仅 `affiliate_customer_bind`。见 T29 / T47。
+- **城市心驿站 · 锁客单表**：视角「锁客未购 / 锁客已购」；再锁客复活已解除行（不合并 `affiliate_invite_lead`）。见 T47。
+- **城市心驿站 · Q2–Q5 / Q-expire 拍板落地**：`/promo` 须本人手机；分享默认 `/p/{code}`（`PROMO_SHARE_URL_TEMPLATE` 可配外链）；部分退不冲回；无到期批提醒；不做链路双档费率。见 `city_station_affiliate_plan.md` §13.1。
 - **工作台 · 咨询交付 · 保护期按人展示**：财务按每次交付咨询师判定；主表「咨询师保护期内」按人 tag；操作记录行级徽标；整单布尔仅作「是否含期内咨询师」筛选。见 `consult_delivery_plan.md` §3.13。
 - **商城 → 全域订单**：新建主库 schema「破壳有范自建商城」；Beat `storefront_ads_sync`（120s）从 shop 灌 ODS；`日报.全域订单` UNION 平台/店铺均=`破壳有范自建商城`。见 `city_station_affiliate_plan.md` §4.1。
 
