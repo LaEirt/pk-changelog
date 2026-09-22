@@ -4,14 +4,23 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-09-19
+- 同步日：2026-09-22
 
 ---
 
 ## 更新动态
 
+### 2026-09-22
+
+- **短信推广 / ADS**：`日报.全域订单` 主刷新 P0 直接投影 `商品id`（快手等），消除「首入空 ID → 编排跳过推水位」漏发；编排对空 ID+no_link 拦水位作双保险；ECS 已部署；批量补发无发送行路径补传 `goods_id`。
+
+### 2026-09-21
+
+- **数仓 · api_data legacy 清理 stage2**：卸除 `delivery_*` / `giftcourse_*` / 开通配置与退款历史留档 / 开通退款四函数；历史补进 `dwd_refund_archive`。见 `91_drop_unused_stage2.sql`。
+
 ### 2026-09-19
 
+- **工作台 · 首屏性能 P0–P2**：SSR `user_info?lite=1` + capabilities 短缓存；hydrate 不再双拉；Element Plus 去掉全量图标注册；重表页 CSS 改页级；公告 inbox 去重、侧栏订单摘要 idle 错峰、助手/命令面板异步挂载；路由取消首屏 `appear` 淡入。
 - **数仓 · schema 表落点 P9**：`抖音订单.同事_邮箱` 对账后迁入 `业务表.同事邮箱`（待确认×5）并 DROP；补 DROP `抖音直播`；`抖音订单` 现仅 ODS 宽表。见 `dw_schema_table_placement_plan.md` PL-17。
 
 ### 2026-09-18
@@ -401,7 +410,7 @@
 
 - **工作台 · 短信推广编辑预览**：右侧实时预览铺满当前高度，按「绑定商品 / 号池 / 发送时间 / 落地页 / 成效」展示更完整的配置摘要（KPI、名单、就绪检查）。见 `sms_landing_shortlink_plan.md` §10.2。
 - **工作台 · 同事分组同步全域订单**：分销账号「同事分组」保存后立即把 `日报.全域订单` 的分组/次级分组对齐 `抖音订单.同事_分组`（含历史行）；存量回填 `scripts/db/align_quanyu_colleague_group.py`。见 `colleague_group_ads_sync_plan.md`。
-- **工程 · `.env` 只放密钥/账号**：JWT/导出 TTL、OSS 前缀、短信验证码 TTL/日限、落地 schema 与短链 host、退款宽限、引导智能体日限/RPM、通知合并窗口、财务定稿批上限、罗盘心跳等改为 `settings.py` 字面量；运维回滚仍用 `DW_ENTITLEMENT_REFUND_LEGACY`。见 `env-secrets-only.mdc`。
+- **工程 · `.env` 只放密钥/账号**：JWT/导出 TTL、OSS 前缀、短信验证码 TTL/日限、落地 schema 与短链 host、退款宽限、引导智能体日限/RPM、通知合并窗口、财务定稿批上限、罗盘心跳等改为 `settings.py` 字面量。见 `env-secrets-only.mdc`。
 
 ### 2026-08-17
 
