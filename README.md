@@ -12,6 +12,8 @@
 
 ### 2026-10-17
 
+- **跨平台上新 · 抖店发品侧车齐全**：类目 ODS 下拉 + `getCatePropertyV2` 属性表单 + `brand.list` 品牌；运费 ODS/CRUD；在售 `listV2` Beat；ECS 同步脚本。
+- **跨平台上新 · 抖店在售同步**：`product.listV2` + `product.detail` 拉全量入 catalog（差集标 offline）；Beat `sync_douyin_shelf`（每小时 :05/:35）；ECS 脚本 `scripts/ecs/run_douyin_shelf_sync_ecs.py`（本地 IP 通常不在白名单）。
 - **商品素材库 · 预览缩放**：滚轮对准光标缩放（1×～5×）+ 拖拽平移；发品选图预览同款。
 - **文件夹侧栏 · 行内新建**：商品素材库、我的文件、短信短链分组共用资源管理器式行内命名（不再弹模态建夹/分组）；菜单标明父节点（如「在「常军」下新建子文件夹 / 子分组」）。
 
