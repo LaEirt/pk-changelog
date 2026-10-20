@@ -4,14 +4,22 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-10-17
+- 同步日：2026-10-20
 
 ---
 
 ## 更新动态
 
+### 2026-10-20
+
+- **跨平台上新 · 抖店发品图转素材中心**：工作台 OSS 仍为选图真相；发布时经 `material.batchUploadImageSync` 转 `byte_url` 再进 `addV2`（与微信 mmec 同构；否决「库存抖店 URL」与全量同步映射）。见 plan §3.1.3a-2 / ACC-40。
+- **抖店店铺展示真名**：`api_data.token.shop_name` 优先；手写 `SHOP_DISPLAY` 兜底；token 刷新/每日 ensure 发现改名则同步 ADS + ODS「店铺」列；上新店条/任务列表只展示真名。
+
 ### 2026-10-17
 
+- **跨平台上新 · 抖店多店类目开通检测**：对齐微信，按当前发品叶子标各店「已开通 / 无此类目」，批量勾选无权限店拦发布（`douyin_category_access` · ACC-34）。
+- **跨平台上新 · 抖店资质 / 类目预测 / 商品推送**：侧车 `qualificationConfig` + DiffPanel `quality_list`；`GetRecommendCategory` 预测类目写入 `category_recommend_id`；推送 tag 400/417/425 回写货架（见 plan ACC-32/33）。
+- **跨平台上新 · 微信 addproduct 选填补齐**：尺码表、主图视频、定时上架、SPU 发货、竖图/白底图进 DiffPanel 与出站。
 - **跨平台上新 · 抖店发品侧车齐全**：类目 ODS 下拉 + `getCatePropertyV2` 属性表单 + `brand.list` 品牌；运费 ODS/CRUD；在售 `listV2` Beat；ECS 同步脚本。
 - **跨平台上新 · 抖店在售同步**：`product.listV2` + `product.detail` 拉全量入 catalog（差集标 offline）；Beat `sync_douyin_shelf`（每小时 :05/:35）；ECS 脚本 `scripts/ecs/run_douyin_shelf_sync_ecs.py`（本地 IP 通常不在白名单）。
 - **商品素材库 · 预览缩放**：滚轮对准光标缩放（1×～5×）+ 拖拽平移；发品选图预览同款。
