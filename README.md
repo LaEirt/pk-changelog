@@ -14,6 +14,7 @@
 
 - **跨平台上新 · 抖店发品图转素材中心**：工作台 OSS 仍为选图真相；发布时经 `material.batchUploadImageSync` 转 `byte_url` 再进 `addV2`（与微信 mmec 同构；否决「库存抖店 URL」与全量同步映射）。见 plan §3.1.3a-2 / ACC-40。
 - **抖店店铺展示真名**：`api_data.token.shop_name` 优先；手写 `SHOP_DISPLAY` 兜底；token 刷新/每日 ensure 发现改名则同步 ADS + ODS「店铺」列；上新店条/任务列表只展示真名。
+- **微信小店真名 + 全域订单店名**：微信 `basics/info` nickname → `token.shop_name`（手写兜底）；ODS 存裸名；`日报.全域订单` 抖音/视频号店铺列改为 `平台 || '-' || 店铺`；ensure 同步 ADS/ODS/全域。
 
 ### 2026-10-17
 
