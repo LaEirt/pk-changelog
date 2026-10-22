@@ -4,11 +4,26 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-10-20
+- 同步日：2026-10-22
 
 ---
 
 ## 更新动态
+
+### 2026-10-22
+
+- **跨平台上新 · 快手辅接口**：类目 optional/全树、运费模板 list/detail/add/update、商家地址 CRUD、SKU 改价/改库存接入 Adapter + ODS 侧车 `kuaishou_options`（DDL 在 `sql/ddl/kuaishou/40–42_*`）。
+
+### 2026-10-21
+
+- **跨平台上新 · 快手商家页查漏**：Diff/adapter 补短标题、亮点、3:4 主图、划线价、日/累计限购、定点开售；`itemRemark` 对齐后台 20 字；类目属性 ICP 等仍后续。
+- **跨平台上新 · 快手差字段对齐**：plan §3.1.3b 补跨渠字段关联表；Diff 增坏损包退；出站 `relItemId` + `servicePromise.brokenRefund`。
+- **跨平台上新 · 小红书上下架落地**：Ark 真调 + `product.updateAvailability(skuId)`（缺省先 `getItemInfo`）；C3 `available≠buyable` 时本地仍在售并提示「平台不可售」。
+- **跨平台上新 · 列表进页提速**：不再串行等各平台 `shop_options`（微信 `basics/info`）才拉列表；店名默认读本地 `token.shop_name`，`refresh=1` 才回源。
+- **城市心驿 · 档位整表可改**：每一档都能改名称、锁期和顺序；没有推广官占用就可以删除。空库才写入起步四档。
+- **城市心驿 · 老用户计佣按商品**：开关从档位移到分组里的每个商品，默认关。打开后左列算新用户、右列算老用户。见 `city_station_affiliate_plan.md` T1 / T20。
+- **城市心驿 · 分组商品名称**：蓝块「简称」、橙块「全名」标在名称前面，用来区分对上方式。
+- **跨平台上新 · 抖店货架全链路对齐**：官方状态机（在售=`0`+`check=3`；草稿 `check=1`→仓库中）；入队前 `peek` 纠分叉（假在售对齐成功；本地仓库但线上在售仍可下架）；`launch`/`setOffline` 后以详情写货架；列表上下架/关任务抽屉后自动刷新。
 
 ### 2026-10-20
 
