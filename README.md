@@ -4,14 +4,27 @@
 
 - 私有工程：[`LaEirt/pk`](https://github.com/LaEirt/pk)（需协作权限）
 - 本页同步自私有仓根目录 `README.md` →「更新动态」
-- 同步日：2026-10-22
+- 同步日：2026-10-23
 
 ---
 
 ## 更新动态
 
+### 2026-10-23
+
+- **跨平台上新 · 微信分享物料**：列表「…」可取商品 H5 短链 / 二维码 / 口令（官方三接口 → `微信订单.wechat_ec_*` ODS）；导入同步商品快照；弹窗复制与刷新。
+- **跨平台上新 · 微信免审更新**：在售商品发布默认可走 `product/auditfree`（改价/库存/运费/限购等即时生效、不进审）；改标题/图/类目可选「完整更新」。竖版主图与纯色底图改为素材库点选，禁止手填 URL。
+
 ### 2026-10-22
 
+- **抖店订单流量体裁**：按官方 `compass_source_content_type_*` 打标（商品卡含「推荐卡」、直播文案归直播间）；不再用标签下标。2026 年误记为「其他」的商品卡已回写 ODS 与 `日报.全域订单`。官方返回「其他」的单保持「其他」。
+- **跨平台上新 · 列表筛选多选**：上新页「平台」「状态」支持多选（与店铺一致）；多选平台时店铺筛禁用（店键跨渠易撞）。
+- **跨平台上新 · 货架来源**：列表区分「工作台 / 平台后台」；工作台上下架记录操作用户；筛选项同步。
+- **跨平台上新 · 页内分区**：商品管理 → 跨平台上新 → 上新 / 素材库 / 审计日志；审计页可配置失败任务企微通知对象（已绑企微邮箱同事）；任务表支持表头排序（默认更新时间 desc）与状态/平台/动作多选筛选。
+- **小红书消息推送 · 商品四类入库 + buyable 回写**：`msg_sku_*` / 拒审进 `小红书_push` evt；Celery 对已映射商品回读 `buyable`/`available` 写 `catalog`（C3：available 仍在售但 buyable=false → 列表「平台不可售」）。
+- **跨平台上新 · 小红书类目/运费/物流 ODS**：对齐抖店，表 `小红书.xhs_ec_*`；Diff 改远程搜索类目；`xiaohongshu_options` 读库；Beat/ECS 全树同步（ACC-43）。
+- **跨平台上新 · 小红书素材与 Diff**：`material.uploadMaterial`/`queryMaterial`/`updateMaterial`/`deleteMaterial`；发品 OSS→内链（方案 C）；运费/物流下拉看齐抖音。
+- **跨平台上新 · 快手发品真调打通（至品牌资质）**：`image.upload` 改 multipart+本机 `imgBytes`；`item.new` 扁平 param + `skuProps` + 类目必填属性自动补；类目改可 OpenAPI 发品叶子。卡点：店未关联品牌资质（需网页版维护后填 `brand_id`）。
 - **跨平台上新 · 快手素材上传**：3:4 / 白底 / 透明图改为点选上传 + 素材库（与抖店/微信同构），禁止手填 URL；发布时 `open.item.image.upload`（type 10/5/6）转存，并接入 material token.issue / verify / detail.get。
 - **跨平台上新 · 快手 Diff 打磨**：进面板强制同步类目/运费；ICP 备案必填（默认粤 ICP 可改）；去掉表单项下说明；修复运费「店铺默认/指定模板」按钮被空 `template_id` 打回默认。
 - **跨平台上新 · 快手辅接口**：类目 optional/全树、运费模板 list/detail/add/update、商家地址 CRUD、SKU 改价/改库存接入 Adapter + ODS 侧车 `kuaishou_options`（DDL 在 `sql/ddl/kuaishou/40–42_*`）。
